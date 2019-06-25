@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+# AND!
+.DS_Store
+.cache/
+dist/
+.vscode/
