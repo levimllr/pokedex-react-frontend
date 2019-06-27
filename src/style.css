@@ -2,3 +2,27 @@ ul,
 li {
   list-style: none;
 }
+
+.pokemon {
+  display: inline-block;
+  padding: 3vh 3vh;
+  text-align: center;
+  height: 25vh;
+  width: auto;
+}
+
+.pokemon-img-frame {
+  margin: auto auto;
+  height: 12vh;
+  width: 12vh;
+  border-radius: 0%;
+  overflow: hidden;
+}
+
+.pokemon-img {
+  margin-top: -1vh;
+  margin-left: -1.5vh;
+  object-fit: cover;
+  height: 15vh;
+  width: 15vh;
+}

@@ -7,26 +7,43 @@ class Pokemon extends React.Component {
     this.state = {
       name: props.name,
       id: "",
-      imgSrc: ""
+      imgSrc: "",
+      types: []
     };
   }
 
-  render() {
+  componentDidMount() {
     axios
       .get("https://pokeapi.co/api/v2/pokemon/" + this.state.name.toLowerCase())
       .then(result => {
         this.setState({
           id: result.data.id,
-          imgSrc: result.data.sprites.front_default
+          imgSrc: result.data.sprites.front_default,
+          types: result.data.types.map(item => item.type.name)
         });
       });
+  }
+
+  render() {
+    console.log("rendering");
 
     return (
       <div className="pokemon">
-        <img alt="Pokemon Sprite" src={this.state.imgSrc}></img>
-        <p>
+        <div className="pokemon-img-frame">
+          <img
+            className="pokemon-img"
+            alt="Pokemon Sprite"
+            src={this.state.imgSrc}
+          ></img>
+        </div>
+        <h3>
           {this.state.name} #{this.state.id}
-        </p>
+        </h3>
+        <ul>
+          {this.state.types.map(type => (
+            <li key={this.state.name + "-" + type}>{type}</li>
+          ))}
+        </ul>
       </div>
     );
   }

@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Pokemon from "./Pokemon";
+import Pokemons from "./Pokemons";
 
 class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <Pokemon name="Mewtwo" />
+        <Pokemons />
       </div>
     );
   }
