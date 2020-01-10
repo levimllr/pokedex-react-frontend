@@ -1,29 +1,24 @@
-import React { useState } from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import CardGrid from './CardGrid';
 
 const App: React.FC = () => {
 
+  const [allPokemon, setAllPokemon] = useState([]);
 
+  const fetchAllPokemon = () => {
+    fetch('http://localhost:3001/api/v1/pokemon')
+      .then(resp => resp.json())
+      .then(json => setAllPokemon(json));
+  };
+
+  useEffect(() => {
+    fetchAllPokemon();
+  }, []);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      < CardGrid  />
+      < CardGrid  allPokemon={allPokemon} />
     </div>
   );
 }
