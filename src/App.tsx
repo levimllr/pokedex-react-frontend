@@ -1,8 +1,12 @@
-import React from 'react';
+import React { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CardGrid from './CardGrid';
 
 const App: React.FC = () => {
+
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +23,7 @@ const App: React.FC = () => {
           Learn React
         </a>
       </header>
+      < CardGrid  />
     </div>
   );
 }
