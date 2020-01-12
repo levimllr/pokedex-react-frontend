@@ -1,16 +1,8 @@
 import React, { FunctionComponent } from 'react';
+import {Pokemon} from './types/index'
 
 interface CardProps {
     pokemon: Pokemon
-};
-
-interface Pokemon {
-    id: number;
-    name: string;
-    height: number;
-    weight: number;
-    flavor_text: string;
-    image_url: string;
 };
 
 const Card:FunctionComponent<CardProps> =
