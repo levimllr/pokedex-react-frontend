@@ -1,15 +1,16 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, MouseEvent, Props } from 'react';
 import Card from './Card';
 import {Pokemon} from './types/index'
 
 interface CardGridProps {
-    allPokemon: Array<Pokemon>
+    allPokemon: Array<Pokemon>,
+    showDetails: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 const CardGrid:FunctionComponent<CardGridProps> =
-    ({ allPokemon }) => (
+    ({ allPokemon, showDetails }) => (
         <div className="grid">
-            {allPokemon.map(pokemon => <Card pokemon={pokemon} />)}
+            {allPokemon.map(pokemon => <Card key={`pokemon-${pokemon.id}`} pokemon={pokemon} showDetails={showDetails}/>)}
         </div>
     )
 

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, MouseEvent } from 'react';
 import './App.css';
+import Nav from './Nav';
 import CardGrid from './CardGrid';
 
 const App: React.FC = () => {
@@ -16,9 +17,15 @@ const App: React.FC = () => {
     fetchAllPokemon();
   }, []);
 
+  const showDetails = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    console.log(event.target);
+  };
+
   return (
     <div className="App">
-      < CardGrid  allPokemon={allPokemon} />
+      < Nav />
+      < CardGrid  allPokemon={allPokemon} showDetails={showDetails} />
     </div>
   );
 }
