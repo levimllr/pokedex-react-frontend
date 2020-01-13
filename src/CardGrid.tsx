@@ -4,7 +4,7 @@ import {Pokemon} from './types/index'
 
 interface CardGridProps {
     allPokemon: Array<Pokemon>,
-    showDetails: (event: React.MouseEvent<HTMLDivElement>) => void;
+    showDetails: (pokeNum: number) => void;
 };
 
 const CardGrid:FunctionComponent<CardGridProps> =
