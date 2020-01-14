@@ -3,14 +3,15 @@ import Card from './Card';
 import {Pokemon} from './types/index'
 
 interface CardGridProps {
-    allPokemon: Array<Pokemon>,
-    showDetails: (pokeNum: number) => void;
+    allPokemon: Array<Pokemon>
 };
 
 const CardGrid:FunctionComponent<CardGridProps> =
-    ({ allPokemon, showDetails }) => (
+    (props: CardGridProps) => (
         <div className="grid">
-            {allPokemon.map(pokemon => <Card key={`pokemon-${pokemon.id}`} pokemon={pokemon} showDetails={showDetails}/>)}
+            {props.allPokemon.map(pokemon => {
+                return <Card key={`pokemon-${pokemon.id}`} pokemon={pokemon} />
+            })}
         </div>
     )
 
