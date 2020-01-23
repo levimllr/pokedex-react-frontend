@@ -5,6 +5,7 @@ import './App.css';
 import Nav from './Nav';
 import CardGrid from './CardGrid';
 import DetailPage from './DetailPage';
+import pokeload from './pikapokeball.gif'
 // import {Pokemon} from './types/index'
 
 const App:FunctionComponent<RouteComponentProps> = () => {
@@ -25,14 +26,17 @@ const App:FunctionComponent<RouteComponentProps> = () => {
   return (
     <div className="App">
       <Nav/>
-      <Switch>
-        <Route exact path="/pokemon">
-          <CardGrid  allPokemon={allPokemon} />
-        </Route>
-        <Route path="/pokemon/:id">
-          <DetailPage allPokemon={allPokemon} />
-        </Route>
-      </Switch>
+      { allPokemon.length > 0 ?
+        <Switch>
+          <Route exact path="/pokemon">
+            <CardGrid  allPokemon={allPokemon} />
+          </Route>
+          <Route path="/pokemon/:id">
+            <DetailPage allPokemon={allPokemon} />
+          </Route>
+        </Switch> :
+        <img src={pokeload} alt="Pikachu Pokeball"></img>
+      }
     </div>
   );
 }

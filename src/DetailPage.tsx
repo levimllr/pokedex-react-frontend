@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import {Pokemon} from './types/index'
+import { Pokemon } from './types/index';
+import DetailView from './DetailView';
+import Card from './Card';
 
 interface Props {
     allPokemon: Array<Pokemon>;
@@ -12,8 +14,9 @@ const DetailPage:FunctionComponent<Props & RouteComponentProps<{ id: string}>> =
 
         return (
         <div className="page">
-    <h1>Detail Page for #{pokeNum}</h1>
-
+          { pokeNum > 1 ? <Card pokemon={props.allPokemon[pokeNum - 2]} /> : null }
+          <DetailView pokemon={props.allPokemon[pokeNum - 1]} />
+          <Card pokemon={props.allPokemon[pokeNum]} />
         </div>
     )}
 
