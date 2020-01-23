@@ -1,16 +1,16 @@
-import React, { useState, useEffect, MouseEvent, FunctionComponent } from 'react';
+import React, { useState, useEffect, FunctionComponent } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 import './App.css';
 import Nav from './Nav';
 import CardGrid from './CardGrid';
 import DetailPage from './DetailPage';
-import {Pokemon} from './types/index'
+// import {Pokemon} from './types/index'
 
 const App:FunctionComponent<RouteComponentProps> = () => {
 
   const [allPokemon, setAllPokemon] = useState([]);
-  const [currentPokemon, setCurrentPokemon] = useState<Pokemon | null>(null);
+  // const [currentPokemon, setCurrentPokemon] = useState<Pokemon | null>(null);
 
   const fetchAllPokemon = () => {
     fetch('http://localhost:3001/api/v1/pokemon')

@@ -1,18 +1,18 @@
 import React, { FunctionComponent } from 'react';
-import { RouteComponentProps, Route } from 'react-router-dom';
-import DetailView from './DetailView';
-import Card from './Card';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import {Pokemon} from './types/index'
 
-interface DetailPageProps {
+interface Props {
     allPokemon: Array<Pokemon>;
 };
 
-const DetailPage:FunctionComponent<DetailPageProps & RouteComponentProps> =
-    (props: DetailPageProps) => (
+const DetailPage:FunctionComponent<Props & RouteComponentProps<{ id: string}>> =
+    props => {
+        return (
         <div className="page">
-            <h1>Detail Page for Pokemon #{}</h1>
-        </div>
-    )
+            <h1>Detail Page for Pokemon #{props.match.params.id}</h1>
 
-export default DetailPage;
+        </div>
+    )}
+
+export default withRouter(DetailPage);

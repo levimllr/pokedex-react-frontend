@@ -7,7 +7,7 @@ interface CardGridProps {
 };
 
 const CardGrid:FunctionComponent<CardGridProps> =
-    (props: CardGridProps) => (
+    props => (
         <div className="grid">
             {props.allPokemon.map(pokemon => {
                 return <Card key={`pokemon-${pokemon.id}`} pokemon={pokemon} />
