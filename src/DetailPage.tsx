@@ -5,13 +5,13 @@ import Card from './Card';
 import {Pokemon} from './types/index'
 
 interface DetailPageProps {
-   allPokemon: Array<Pokemon>;
+    allPokemon: Array<Pokemon>;
 };
 
-const DetailPage:FunctionComponent<DetailPageProps> =
+const DetailPage:FunctionComponent<DetailPageProps & RouteComponentProps> =
     (props: DetailPageProps) => (
         <div className="page">
-            <h1>Detail Page for {props.pokemonNum}</h1>
+            <h1>Detail Page for Pokemon #{}</h1>
         </div>
     )
 

@@ -1,12 +1,13 @@
-import React, { useState, useEffect, MouseEvent } from 'react';
+import React, { useState, useEffect, MouseEvent, FunctionComponent } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import './App.css';
 import Nav from './Nav';
 import CardGrid from './CardGrid';
 import DetailPage from './DetailPage';
 import {Pokemon} from './types/index'
 
-const App: React.FC = () => {
+const App:FunctionComponent<RouteComponentProps> = () => {
 
   const [allPokemon, setAllPokemon] = useState([]);
   const [currentPokemon, setCurrentPokemon] = useState<Pokemon | null>(null);
@@ -28,9 +29,10 @@ const App: React.FC = () => {
         <Route exact path="/pokemon">
           <CardGrid  allPokemon={allPokemon} />
         </Route>
-        <Route path="/pokemon/:pokemonNum">
-          <DetailPage allPokemon={allPokemon} />
-        </Route>
+        <Route 
+          path="/pokemon/:id"
+          component={DetailPage}
+        />
       </Switch>
     </div>
   );
