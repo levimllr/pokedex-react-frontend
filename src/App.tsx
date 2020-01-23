@@ -25,7 +25,7 @@ const App:FunctionComponent<RouteComponentProps> = () => {
 
   return (
     <div className="App">
-      <Nav/>
+      <Nav numberOfPokemon={allPokemon.length} />
       { allPokemon.length > 0 ?
         <Switch>
           <Route exact path="/pokemon">

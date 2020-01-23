@@ -11,12 +11,13 @@ interface Props {
 const DetailPage:FunctionComponent<Props & RouteComponentProps<{ id: string}>> =
     props => {
         const pokeNum = parseInt(props.match.params.id);
+        const pokemons = props.allPokemon;
 
         return (
         <div className="page">
-          { pokeNum > 1 ? <Card pokemon={props.allPokemon[pokeNum - 2]} /> : null }
-          <DetailView pokemon={props.allPokemon[pokeNum - 1]} />
-          <Card pokemon={props.allPokemon[pokeNum]} />
+          { pokeNum > 1 ? <Card pokemon={pokemons[pokeNum - 2]} /> : null }
+          <DetailView pokemon={pokemons[pokeNum - 1]} />
+          { pokeNum < pokemons.length - 1 ? <Card pokemon={pokemons[pokeNum]} /> : null }
         </div>
     )}
 

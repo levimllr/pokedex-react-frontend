@@ -1,13 +1,20 @@
 import React, { FunctionComponent } from 'react';
 import NavButton from './NavButton';
 
-const Nav:FunctionComponent =
-    () => (
+interface Props {
+    numberOfPokemon: number;
+};
+
+const Nav:FunctionComponent<Props> =
+    props => {
+        const randomPokemonNumber = Math.floor(Math.random()*props.numberOfPokemon)
+
+        return (
         <div className="nav">
-            <NavButton name="Search" />
-            <NavButton name="Random" />
-            <NavButton name="Saved" />
+            <NavButton name={"Search"} path={"/pokemon"} />
+            <NavButton name={"Random"} path={`/pokemon/${randomPokemonNumber}`} />
+            <NavButton name={"Saved"} path={"/pokemon"} />
         </div>
-    )
+    )}
 
 export default Nav;
