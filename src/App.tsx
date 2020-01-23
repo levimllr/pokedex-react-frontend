@@ -24,15 +24,14 @@ const App:FunctionComponent<RouteComponentProps> = () => {
 
   return (
     <div className="App">
-      < Nav />
+      <Nav/>
       <Switch>
         <Route exact path="/pokemon">
           <CardGrid  allPokemon={allPokemon} />
         </Route>
-        <Route 
-          path="/pokemon/:id"
-          component={DetailPage}
-        />
+        <Route path="/pokemon/:id">
+          <DetailPage allPokemon={allPokemon} />
+        </Route>
       </Switch>
     </div>
   );
