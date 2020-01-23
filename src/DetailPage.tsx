@@ -8,9 +8,11 @@ interface Props {
 
 const DetailPage:FunctionComponent<Props & RouteComponentProps<{ id: string}>> =
     props => {
+        const pokeNum = parseInt(props.match.params.id);
+
         return (
         <div className="page">
-            <h1>Detail Page for Pokemon #{props.match.params.id}</h1>
+    <h1>Detail Page for #{pokeNum}</h1>
 
         </div>
     )}

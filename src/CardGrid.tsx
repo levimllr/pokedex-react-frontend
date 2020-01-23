@@ -1,4 +1,4 @@
-import React, { FunctionComponent, MouseEvent, Props } from 'react';
+import React, { FunctionComponent } from 'react';
 import Card from './Card';
 import {Pokemon} from './types/index'
 

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, MouseEvent } from 'react';
+import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import {Pokemon} from './types/index'
 
@@ -13,7 +13,7 @@ const Card:FunctionComponent<CardProps> =
                 id={`pokemonCard-${props.pokemon.id}`} 
                 key={props.pokemon.id} 
             >
-                <img src={props.pokemon.image_url}></img>
+                <img alt={props.pokemon.name} src={props.pokemon.image_url}></img>
                 <h2>#{props.pokemon.id} {props.pokemon.name}</h2>
             </div>
         </Link>
