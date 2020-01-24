@@ -1,10 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FunctionComponent } from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import './App.css';
+import Nav from './Nav';
 import CardGrid from './CardGrid';
+import DetailPage from './DetailPage';
+import pokeload from './pikapokeball.gif'
+// import {Pokemon} from './types/index'
 
-const App: React.FC = () => {
+const App:FunctionComponent<RouteComponentProps> = () => {
 
   const [allPokemon, setAllPokemon] = useState([]);
+  // const [currentPokemon, setCurrentPokemon] = useState<Pokemon | null>(null);
 
   const fetchAllPokemon = () => {
     fetch('http://localhost:3001/api/v1/pokemon')
@@ -18,9 +25,20 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      < CardGrid  allPokemon={allPokemon} />
+      <Nav numberOfPokemon={allPokemon.length} />
+      { allPokemon.length > 0 ?
+        <Switch>
+          <Route exact path="/pokemon">
+            <CardGrid  allPokemon={allPokemon} />
+          </Route>
+          <Route path="/pokemon/:id">
+            <DetailPage allPokemon={allPokemon} />
+          </Route>
+        </Switch> :
+        <img src={pokeload} alt="Pikachu Pokeball"></img>
+      }
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
