@@ -32,51 +32,51 @@ export interface AllPokemonAPI {
 export interface PokemonAttributes {
     pokemon_id: number;
     name: string,
-    types: Array<Types>;
+    types: Array<Type>;
     sprites: Sprites
 };
 
 export interface SimplePokemonTypes {
-    slot: integer;
-    type: SimpleTypeObject;
+    slot: number;
+    type: BasicAPILink;
 };
 
 // POKEMON API AT SHOW PATH
 // /api/v1/pokemon/:id
 
 export interface OnePokemonAPI {
-    data: FullPokemon;
+    data: FullPokemonAttributes;
 };
 
 export interface FullPokemonAttributes {
     abilities: Array<AbilityMeta>;
-    base_experience: integer;
+    base_experience: number;
     forms: Array<BasicAPILink>;
     game_indices: Array<GameIndex>;
-    height: integer;
+    height: number;
     held_items: Array<HeldItem>;
-    pokemon_id: integer;
+    pokemon_id: number;
     is_default: boolean;
     location_area_encounters: string;
     moves: Array<Move>;
     name: string;
-    order: integer;
+    order: number;
     species: BasicAPILink;
     sprites: Sprites;
     stats: Array<Stat>;
     types: Array<Type>;
-    weight: integer;
+    weight: number;
 };
 
 export interface AbilityMeta {
-    slot: integer;
+    slot: number;
     ability: BasicAPILink;
     is_hidden: boolean;
 };
 
 export interface GameIndex {
     version: BasicAPILink;
-    game_index: integer;
+    game_index: number;
 };
 
 export interface HeldItem {
@@ -85,7 +85,7 @@ export interface HeldItem {
 };
 
 export interface VersionDetail {
-    rarity: integer;
+    rarity: number;
     version: BasicAPILink;
 };
 
@@ -96,18 +96,18 @@ export interface Move {
 
 export interface VersionGroupDetail {
     version_group: BasicAPILink;
-    level_learned_at: integer;
+    level_learned_at: number;
     move_learn_method: BasicAPILink;
 };
 
 export interface Stat {
     stat: BasicAPILink;
-    effort: integer;
-    base_stat: integer;
+    effort: number;
+    base_stat: number;
 };
 
 export interface Type {
-    slot: integer;
+    slot: number;
     type: BasicAPILink;
 };
 
