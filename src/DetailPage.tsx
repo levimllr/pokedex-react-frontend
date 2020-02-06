@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { Pokemon } from './types/index';
+import { MetaPokemon, FullPokemonAttributes } from './types/index';
 import DetailView from './DetailView';
 import Card from './Card';
 
 interface Props {
-    allPokemon: Array<Pokemon>;
+    allPokemon: Array<FullPokemonAttributes>;
 };
 
 const DetailPage:FunctionComponent<Props & RouteComponentProps<{ id: string}>> =

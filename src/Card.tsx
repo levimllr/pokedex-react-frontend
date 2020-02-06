@@ -1,20 +1,20 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
-import {Pokemon} from './types/index'
+import {PokemonAttributes} from './types/index'
 
 interface CardProps {
-    pokemon: Pokemon;
+    pokemon: PokemonAttributes;
 };
 
 const Card:FunctionComponent<CardProps> =
     (props: CardProps) => (
-        <Link to={`/pokemon/${props.pokemon.id}`}>
+        <Link to={`/pokemon/${props.pokemon.pokemon_id}`}>
             <div className="grid" 
-                id={`pokemonCard-${props.pokemon.id}`} 
-                key={props.pokemon.id} 
+                id={`pokemonCard-${props.pokemon.pokemon_id}`} 
+                key={props.pokemon.pokemon_id} 
             >
-                <img alt={props.pokemon.name} src={props.pokemon.image_url}></img>
-                <h2>#{props.pokemon.id} {props.pokemon.name}</h2>
+                <img alt={props.pokemon.name} src={props.pokemon.sprites.front_default}></img>
+                <h2>#{props.pokemon.pokemon_id} {props.pokemon.name}</h2>
             </div>
         </Link>
     )
