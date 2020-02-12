@@ -130,18 +130,27 @@ h2.card-title {
 
 .grid {
   margin: 2px;
-  transition: all 0.25s ease;
+  transition: all 0.5s ease;
 
   img {
-    transition: all 1s ease;
+    transition: all 0.5s ease;
   };
 
   &:hover,
   &:focus {
-    transform: scale(1.15);
+    transform: scale(0.95);
+    border: black 1px;
 
     img {
       transform: scale(1.6);
+    }
+  }
+
+  &:active {
+    transform: scale(0.9);
+
+    img {
+      transform: scale(2);
     }
   }
 };
