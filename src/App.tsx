@@ -37,7 +37,7 @@ const App:FunctionComponent<RouteComponentProps> = () => {
             <CardGrid  allPokemon={allPokemon} />
           </Route>
           <Route path="/pokemon/:id">
-            <DetailPage />
+            <DetailPage allPokemon={allPokemon} />
           </Route>
         </Switch> :
         <img src={pokeload} alt="Pikachu Pokeball"></img>
