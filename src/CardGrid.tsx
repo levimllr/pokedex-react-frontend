@@ -1,16 +1,16 @@
 import React, { FunctionComponent } from 'react';
 import Card from './Card';
-import {Pokemon} from './types/index'
+import {PokemonAttributes} from './types/index'
 
 interface CardGridProps {
-    allPokemon: Array<Pokemon>
+    allPokemon: Array<PokemonAttributes>
 };
 
 const CardGrid:FunctionComponent<CardGridProps> =
     props => (
         <div className="grid">
             {props.allPokemon.map(pokemon => {
-                return <Card key={`pokemon-${pokemon.id}`} pokemon={pokemon} />
+                return <Card key={`pokemon-${pokemon.pokemon_id}`} pokemon={pokemon} />
             })}
         </div>
     )

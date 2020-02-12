@@ -6,22 +6,27 @@ import Nav from './Nav';
 import CardGrid from './CardGrid';
 import DetailPage from './DetailPage';
 import pokeload from './pikapokeball.gif'
-// import {Pokemon} from './types/index'
+import { AllPokemonAPI, MetaPokemon, PokemonAttributes } from './types/index'
 
 const App:FunctionComponent<RouteComponentProps> = () => {
 
-  const [allPokemon, setAllPokemon] = useState([]);
+  const [allPokemon, setAllPokemon] = useState<Array<PokemonAttributes>>([]);
   // const [currentPokemon, setCurrentPokemon] = useState<Pokemon | null>(null);
 
   const fetchAllPokemon = () => {
     fetch('http://localhost:3001/api/v1/pokemon')
       .then(resp => resp.json())
-      .then(json => setAllPokemon(json));
+      .then(json => formatAllPokemonResponse(json));
   };
 
   useEffect(() => {
     fetchAllPokemon();
   }, []);
+
+  const formatAllPokemonResponse = (json:AllPokemonAPI) => {
+    let parsedData = json.data.map((pokemon:MetaPokemon) => pokemon.attributes);
+    setAllPokemon(parsedData);
+  };
 
   return (
     <div className="App">
