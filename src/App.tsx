@@ -1,7 +1,7 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
-import './App.css';
+import './App.scss';
 import Nav from './Nav';
 import CardGrid from './CardGrid';
 import DetailPage from './DetailPage';

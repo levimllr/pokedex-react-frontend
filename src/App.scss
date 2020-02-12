@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
 
 .App-logo {
@@ -36,3 +38,18 @@
     transform: rotate(360deg);
   }
 }
+
+.grid-container {
+  display: grid;
+  align-items: center;
+  
+  &.equal-items {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  }
+
+  &.display-items {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+}
+
+
