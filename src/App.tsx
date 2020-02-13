@@ -44,6 +44,7 @@ const App:FunctionComponent<RouteComponentProps> = () => {
 
   const searchFilter = (event: React.FormEvent<HTMLFormElement>) => {
     // help here!
+    console.log(event.target.value);
   };
 
   return (
