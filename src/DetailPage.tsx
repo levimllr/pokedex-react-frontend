@@ -25,7 +25,7 @@ const DetailPage: FunctionComponent<Props &
         .then(json => setOnePokemon(json.data.attributes));
     };
     fetchOnePokemon();
-  }, [props.match.params.id]);
+  }, [pokeNum]);
 
   if (onePokemon) {
     return (
