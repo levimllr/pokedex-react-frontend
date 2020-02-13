@@ -3,6 +3,7 @@ import NavButton from './NavButton';
 
 interface Props {
     numberOfPokemon: number;
+    handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Nav:FunctionComponent<Props> =
@@ -11,7 +12,7 @@ const Nav:FunctionComponent<Props> =
 
         return (
         <div className="nav">
-            <NavButton name={"Search"} path={"/pokemon"} />
+            <NavButton name={"Search"} path={"/pokemon"} handleClick={props.handleClick} />
             <NavButton name={"Random"} path={`/pokemon/${randomPokemonNumber}`} />
             <NavButton name={"Saved"} path={"/pokemon"} />
         </div>
