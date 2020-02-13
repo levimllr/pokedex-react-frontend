@@ -9,15 +9,13 @@ import { AllPokemonAPI, MetaPokemon, PokemonAttributes } from "./types/index";
 
 const App: FunctionComponent<{}> = () => {
   const [allPokemon, setAllPokemon] = useState<Array<PokemonAttributes>>([]);
-  // const [currentPokemon, setCurrentPokemon] = useState<Pokemon | null>(null);
-
-  const fetchAllPokemon = () => {
-    fetch("http://localhost:3001/api/v1/pokemon")
-      .then(resp => resp.json())
-      .then(json => formatAllPokemonResponse(json));
-  };
 
   useEffect(() => {
+    const fetchAllPokemon = () => {
+      fetch("http://localhost:3001/api/v1/pokemon")
+        .then(resp => resp.json())
+        .then(json => formatAllPokemonResponse(json));
+    };
     fetchAllPokemon();
   }, []);
 
