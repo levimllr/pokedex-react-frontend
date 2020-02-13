@@ -1,18 +1,17 @@
-import React, { FunctionComponent } from 'react';
-import Card from './Card';
-import {PokemonAttributes} from './types/index'
+import React, { FunctionComponent } from 'react'
+import Card from './Card'
+import { PokemonAttributes } from './types/index'
 
 interface CardGridProps {
-    allPokemon: Array<PokemonAttributes>
-};
+  allPokemon: Array<PokemonAttributes>
+}
 
-const CardGrid:FunctionComponent<CardGridProps> =
-    props => (
-        <div className="grid">
-            {props.allPokemon.map(pokemon => {
-                return <Card key={`pokemon-${pokemon.pokemon_id}`} pokemon={pokemon} />
-            })}
-        </div>
-    )
+const CardGrid: FunctionComponent<CardGridProps> = props => (
+  <div className="grid">
+    {props.allPokemon.map(pokemon => {
+      return <Card key={`pokemon-${pokemon.pokemon_id}`} pokemon={pokemon} />
+    })}
+  </div>
+)
 
-export default CardGrid;
+export default CardGrid
