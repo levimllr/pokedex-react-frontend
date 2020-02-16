@@ -56,18 +56,8 @@ const App: FunctionComponent<{}> = () => {
     }
   };
 
-  const checkedTypes = () => {
-    // const typeCheckboxes = Array.prototype.slice.call(document.getElementsByClassName('checkbox-type'));
-    // let typesChecked = typeCheckboxes
-    //   .filter(box => box.checked)
-    //   .map(box => box.value);
-    // return typesChecked;
-  };
-
   const searchFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
-    // let searchName = document.getElementById("name").value;
-    // setFilter({name: searchName, types: checkedTypes() });
+    setFilter({name: event.target.value});
   };
 
   const filterPokemon = () => {
