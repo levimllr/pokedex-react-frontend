@@ -29,10 +29,10 @@ const DetailPage:FunctionComponent<Props & RouteComponentProps<{ id: string}>> =
 
         if (onePokemon) {
             return (
-                <div className="page">
-                    { pokeNum > 1 ? <Card pokemon={pokemons[pokeNum - 2]} /> : null }
+                <div className="page grid-container display-items">
+                    { pokeNum > 1 ? <Card pokemon={pokemons[pokeNum - 2]} /> : <div></div> }
                     <DetailView pokemon={onePokemon} />
-                    { pokeNum < pokemons.length - 1 ? <Card pokemon={pokemons[pokeNum]} /> : null }
+                    { pokeNum < pokemons.length - 1 ? <Card pokemon={pokemons[pokeNum]} /> : <div></div> }
                 </div>
             )
         } else {
