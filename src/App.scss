@@ -1,28 +1,28 @@
-$pokemon-red: #FF0000;
-$pokemon-red-dark: #CC0000;
-$pokemon-blue: #3B4CCA;
-$pokemon-yellow: #FFDE00;
-$pokemon-yellow-dark: #B3A125;
+$pokemon-red: #ff0000;
+$pokemon-red-dark: #cc0000;
+$pokemon-blue: #3b4cca;
+$pokemon-yellow: #ffde00;
+$pokemon-yellow-dark: #b3a125;
 
 $type-colors: (
-  normal: #A8A77A,
-  fire:  #EE8130,
-  water:  #6390F0,
-  electric:  #F7D02C,
-  grass:  #7AC74C,
-  ice:  #96D9D6,
-  fighting:  #C22E28,
-  poison:  #A33EA1,
-  ground:  #E2BF65,
-  flying:  #A98FF3,
-  psychic:  #F95587,
-  bug:  #A6B91A,
-  rock:  #B6A136,
-  ghost:  #735797,
-  dragon:  #6F35FC,
-  dark:  #705746,
-  steel:  #B7B7CE,
-  fairy:  #D685AD
+  normal: #a8a77a,
+  fire: #ee8130,
+  water: #6390f0,
+  electric: #f7d02c,
+  grass: #7ac74c,
+  ice: #96d9d6,
+  fighting: #c22e28,
+  poison: #a33ea1,
+  ground: #e2bf65,
+  flying: #a98ff3,
+  psychic: #f95587,
+  bug: #a6b91a,
+  rock: #b6a136,
+  ghost: #735797,
+  dragon: #6f35fc,
+  dark: #705746,
+  steel: #b7b7ce,
+  fairy: #d685ad,
 );
 
 $type-opacity-light: 0.2;
@@ -34,7 +34,7 @@ $type-opacity-heavy: 0.6;
       background-color: rgba($hex, $opacity);
       &:hover {
         background-color: rgba($hex, $type-opacity-heavy);
-      };
+      }
     }
   }
 }
@@ -43,14 +43,24 @@ $type-opacity-heavy: 0.6;
   @each $second-name, $second-hex in $type-colors {
     @each $first-name, $first-hex in $type-colors {
       &-#{$first-name}-#{$second-name} {
-        background: linear-gradient(90deg, rgba($second-hex, $type-opacity-light) 50%, 50%, rgba($first-hex, $type-opacity-light));
+        background: linear-gradient(
+          90deg,
+          rgba($second-hex, $type-opacity-light) 50%,
+          50%,
+          rgba($first-hex, $type-opacity-light)
+        );
         &:hover {
-          background: linear-gradient(90deg, rgba($second-hex, $type-opacity-heavy) 50%, 50%, rgba($first-hex, $type-opacity-heavy));
-        };
-      };
-    };
-  };
-};
+          background: linear-gradient(
+            90deg,
+            rgba($second-hex, $type-opacity-heavy) 50%,
+            50%,
+            rgba($first-hex, $type-opacity-heavy)
+          );
+        }
+      }
+    }
+  }
+}
 
 .App {
   text-align: center;
@@ -72,13 +82,13 @@ a {
 
   &:active {
     color: $pokemon-red;
-  };
+  }
 }
 
 h2.card-title {
   padding-bottom: 20px;
   margin: 0;
-};
+}
 
 .App-logo {
   height: 40vmin;
@@ -118,7 +128,7 @@ h2.card-title {
 .grid-container {
   display: grid;
   align-items: center;
-  
+
   &.equal-items {
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   }
@@ -128,14 +138,13 @@ h2.card-title {
   }
 }
 
-
 .grid {
   margin: 2px;
   transition: all 0.5s ease;
 
   img {
     transition: all 0.5s ease;
-  };
+  }
 
   &:hover,
   &:focus {
@@ -153,14 +162,14 @@ h2.card-title {
       transform: scale(2);
     }
   }
-};
+}
 
 // BACKGROUND OF POKEMON CARDS
 
 .type-single {
   @include color-modifiers-single($type-opacity-light);
-};
+}
 
 .type-double {
   @include color-modifiers-double($type-opacity-light);
-};
+}
