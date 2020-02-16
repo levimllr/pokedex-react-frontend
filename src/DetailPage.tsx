@@ -19,8 +19,6 @@ const DetailPage: FunctionComponent<
   const pokeNum = parseInt(props.match.params.id);
   const pokemons = props.allPokemon;
 
-  
-
   useEffect(() => {
     const fetchOnePokemon = () => {
       fetch(`http://localhost:3001/api/v1/pokemon/${pokeNum}`)
