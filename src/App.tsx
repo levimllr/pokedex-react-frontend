@@ -6,9 +6,12 @@ import CardGrid from './CardGrid';
 import DetailPage from './DetailPage';
 import pokeload from './pikapokeball.gif';
 import SearchFilter from './SearchFilter';
-import { AllPokemonAPI, MetaPokemon, PokemonAttributes, PokemonFilter } from './types/index';
-
-const App:FunctionComponent<RouteComponentProps> = () => {
+import {
+  AllPokemonAPI,
+  MetaPokemon,
+  PokemonAttributes,
+  PokemonFilter,
+} from './types/index';
 
 const App: FunctionComponent<{}> = () => {
   const [allPokemon, setAllPokemon] = useState<Array<PokemonAttributes>>([]);
@@ -46,32 +49,46 @@ const App: FunctionComponent<{}> = () => {
   };
 
   const renderSearch = () => {
-   if (search) {
-     return <SearchFilter handleChange={searchFilter} />
-   } else {
-     return null;
-   };
+    if (search) {
+      return <SearchFilter handleChange={searchFilter} />;
+    } else {
+      return null;
+    }
+  };
+
+  const checkedTypes = () => {
+    // const typeCheckboxes = Array.prototype.slice.call(document.getElementsByClassName('checkbox-type'));
+    // let typesChecked = typeCheckboxes
+    //   .filter(box => box.checked)
+    //   .map(box => box.value);
+    // return typesChecked;
   };
 
   const searchFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFilter({name: event.target.value});
+    console.log(event.target.value);
+    // let searchName = document.getElementById("name").value;
+    // setFilter({name: searchName, types: checkedTypes() });
   };
 
-  // const filterPokemon = () => {
-  //   filteredPokemon = allPokemon;
-  //   Object.keys(filter).forEach(key => {
-  //     filteredPokemon = allPokemon.filter(pokemon => pokemon.name.includes?)
-  //   });
-  // };
+  const filterPokemon = () => {
+    if (filter) {
+      return allPokemon.filter(pokemon =>
+        pokemon.name.toLowerCase().includes(filter.name)
+      );
+    } else {
+      return allPokemon;
+    }
+  };
 
   return (
     <div className="App">
       <Router>
-        <Nav numberOfPokemon={allPokemon.length} />
+        <Nav numberOfPokemon={allPokemon.length} handleClick={toggleSearch} />
         {allPokemon.length > 0 ? (
           <Switch>
             <Route exact path="/pokemon">
-              <CardGrid allPokemon={allPokemon} />
+              {renderSearch()}
+              <CardGrid allPokemon={filterPokemon()} />
             </Route>
             <Route path="/pokemon/:id">
               <DetailPage allPokemon={allPokemon} />

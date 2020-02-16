@@ -138,7 +138,7 @@ h2.card-title {
   }
 }
 
-.grid {
+.card {
   margin: 2px;
   transition: all 0.5s ease;
 
@@ -172,4 +172,9 @@ h2.card-title {
 
 .type-double {
   @include color-modifiers-double($type-opacity-light);
+}
+
+// STYLE OF SEARCH FORM
+.checkbox-container {
+  text-align: left;
 }
