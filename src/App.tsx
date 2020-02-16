@@ -7,13 +7,13 @@ import CardGrid from './CardGrid';
 import DetailPage from './DetailPage';
 import pokeload from './pikapokeball.gif';
 import SearchFilter from './SearchFilter';
-import { AllPokemonAPI, MetaPokemon, PokemonAttributes } from './types/index';
+import { AllPokemonAPI, MetaPokemon, PokemonAttributes, PokemonFilter } from './types/index';
 
 const App:FunctionComponent<RouteComponentProps> = () => {
 
   const [allPokemon, setAllPokemon] = useState<Array<PokemonAttributes>>([]);
   const [search, setSearch] = useState<boolean>(false);
-  // const [currentPokemon, setCurrentPokemon] = useState<Pokemon | null>(null);
+  const [filter, setFilter] = useState<PokemonFilter | null>(null);
 
   useEffect(() => {
     fetchAllPokemon();
@@ -42,10 +42,16 @@ const App:FunctionComponent<RouteComponentProps> = () => {
    };
   };
 
-  const searchFilter = (event: React.FormEvent<HTMLFormElement>) => {
-    // help here!
-    console.log(event.target.value);
+  const searchFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFilter({name: event.target.value});
   };
+
+  // const filterPokemon = () => {
+  //   filteredPokemon = allPokemon;
+  //   Object.keys(filter).forEach(key => {
+  //     filteredPokemon = allPokemon.filter(pokemon => pokemon.name.includes?)
+  //   });
+  // };
 
   return (
     <div className="App">
