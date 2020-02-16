@@ -40,6 +40,12 @@
   "devDependencies": {
     "@types/jest": "^25.1.2",
     "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6"
+    "babel-loader": "^8.0.6",
+    "prettier": "^1.19.1"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": true,
+    "singleQuote": true
   }
 }
