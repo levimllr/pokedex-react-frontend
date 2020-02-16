@@ -1,0 +1,175 @@
+$pokemon-red: #ff0000;
+$pokemon-red-dark: #cc0000;
+$pokemon-blue: #3b4cca;
+$pokemon-yellow: #ffde00;
+$pokemon-yellow-dark: #b3a125;
+
+$type-colors: (
+  normal: #a8a77a,
+  fire: #ee8130,
+  water: #6390f0,
+  electric: #f7d02c,
+  grass: #7ac74c,
+  ice: #96d9d6,
+  fighting: #c22e28,
+  poison: #a33ea1,
+  ground: #e2bf65,
+  flying: #a98ff3,
+  psychic: #f95587,
+  bug: #a6b91a,
+  rock: #b6a136,
+  ghost: #735797,
+  dragon: #6f35fc,
+  dark: #705746,
+  steel: #b7b7ce,
+  fairy: #d685ad,
+);
+
+$type-opacity-light: 0.2;
+$type-opacity-heavy: 0.6;
+
+@mixin color-modifiers-single($opacity) {
+  @each $name, $hex in $type-colors {
+    &-#{$name} {
+      background-color: rgba($hex, $opacity);
+      &:hover {
+        background-color: rgba($hex, $type-opacity-heavy);
+      }
+    }
+  }
+}
+
+@mixin color-modifiers-double($opacity) {
+  @each $second-name, $second-hex in $type-colors {
+    @each $first-name, $first-hex in $type-colors {
+      &-#{$first-name}-#{$second-name} {
+        background: linear-gradient(
+          90deg,
+          rgba($second-hex, $type-opacity-light) 50%,
+          50%,
+          rgba($first-hex, $type-opacity-light)
+        );
+        &:hover {
+          background: linear-gradient(
+            90deg,
+            rgba($second-hex, $type-opacity-heavy) 50%,
+            50%,
+            rgba($first-hex, $type-opacity-heavy)
+          );
+        }
+      }
+    }
+  }
+}
+
+.App {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+a {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &:hover,
+  &:focus {
+    color: $pokemon-blue;
+  }
+
+  &:active {
+    color: $pokemon-red;
+  }
+}
+
+h2.card-title {
+  padding-bottom: 20px;
+  margin: 0;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.grid-container {
+  display: grid;
+  align-items: center;
+
+  &.equal-items {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  }
+
+  &.display-items {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+}
+
+.grid {
+  margin: 2px;
+  transition: all 0.5s ease;
+
+  img {
+    transition: all 0.5s ease;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(0.95);
+
+    img {
+      transform: scale(1.6);
+    }
+  }
+
+  &:active {
+    transform: scale(0.9);
+
+    img {
+      transform: scale(2);
+    }
+  }
+}
+
+// BACKGROUND OF POKEMON CARDS
+
+.type-single {
+  @include color-modifiers-single($type-opacity-light);
+}
+
+.type-double {
+  @include color-modifiers-double($type-opacity-light);
+}
