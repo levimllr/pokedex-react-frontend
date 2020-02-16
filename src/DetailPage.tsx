@@ -19,15 +19,16 @@ const DetailPage: FunctionComponent<
   const pokeNum = parseInt(props.match.params.id);
   const pokemons = props.allPokemon;
 
-  const fetchOnePokemon = () => {
-    fetch(`http://localhost:3001/api/v1/pokemon/${pokeNum}`)
-      .then(resp => resp.json())
-      .then(json => setOnePokemon(json.data.attributes));
-  };
+  
 
   useEffect(() => {
+    const fetchOnePokemon = () => {
+      fetch(`http://localhost:3001/api/v1/pokemon/${pokeNum}`)
+        .then(resp => resp.json())
+        .then(json => setOnePokemon(json.data.attributes));
+    };
     fetchOnePokemon();
-  }, [props.match.params.id]);
+  }, [pokeNum]);
 
   if (onePokemon) {
     return (
