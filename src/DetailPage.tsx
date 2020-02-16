@@ -9,9 +9,8 @@ interface Props {
   allPokemon: Array<PokemonAttributes>;
 }
 
-const DetailPage: FunctionComponent<
-  Props & RouteComponentProps<{ id: string }>
-> = props => {
+const DetailPage: FunctionComponent<Props &
+  RouteComponentProps<{ id: string }>> = props => {
   const [onePokemon, setOnePokemon] = useState<FullPokemonAttributes | null>(
     null
   );
