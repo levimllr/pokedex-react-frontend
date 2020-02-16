@@ -13,7 +13,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn
-      - run: CI=true yarn build && prettier -c "src/**/*.tsx"
+      - run: CI=true yarn build
+      - run: prettier -c "src/**/*.tsx"
       - run: yarn test
         env:
           CI: true
