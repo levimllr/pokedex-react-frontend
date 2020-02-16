@@ -7,7 +7,7 @@ interface CardProps {
 }
 
 const typeStyleName = (types: Array<Type>) => {
-  const prefix = 'type-' + (types.length == 1 ? 'single' : 'double') + '-';
+  const prefix = 'type-' + (types.length === 1 ? 'single' : 'double') + '-';
   return prefix + types.map(type => type.type.name).join('-');
 };
 
