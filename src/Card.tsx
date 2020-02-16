@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react'
-import { Link } from 'react-router-dom'
-import { PokemonAttributes } from './types/index'
+import React, { FunctionComponent } from 'react';
+import { Link } from 'react-router-dom';
+import { PokemonAttributes } from './types/index';
 
 interface CardProps {
-  pokemon: PokemonAttributes
+  pokemon: PokemonAttributes;
 }
 
 const Card: FunctionComponent<CardProps> = (props: CardProps) => (
@@ -19,6 +19,6 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => (
       </h2>
     </div>
   </Link>
-)
+);
 
-export default Card
+export default Card;

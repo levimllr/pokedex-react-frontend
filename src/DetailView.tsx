@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react'
-import { FullPokemonAttributes } from './types/index'
+import React, { FunctionComponent } from 'react';
+import { FullPokemonAttributes } from './types/index';
 
 interface DetailViewProps {
-  pokemon: FullPokemonAttributes
+  pokemon: FullPokemonAttributes;
 }
 
 const DetailView: FunctionComponent<DetailViewProps> = ({ pokemon }) => (
@@ -14,6 +14,6 @@ const DetailView: FunctionComponent<DetailViewProps> = ({ pokemon }) => (
     <h3>Height: {pokemon.height} decimeters</h3>
     <h3>Weight: {pokemon.weight} hectograms</h3>
   </div>
-)
+);
 
-export default DetailView
+export default DetailView;
