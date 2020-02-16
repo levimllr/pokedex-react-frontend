@@ -6,9 +6,8 @@ interface Props {
     handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-const Nav:FunctionComponent<Props> =
-    props => {
-        const randomPokemonNumber = Math.floor(Math.random()*props.numberOfPokemon)
+const Nav: FunctionComponent<Props> = props => {
+  const randomPokemonNumber = Math.floor(Math.random() * props.numberOfPokemon);
 
         return (
         <div className="nav">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
-import './App.css';
+import './App.scss';
 import Nav from './Nav';
 import CardGrid from './CardGrid';
 import DetailPage from './DetailPage';
@@ -11,6 +11,7 @@ import { AllPokemonAPI, MetaPokemon, PokemonAttributes, PokemonFilter } from './
 
 const App:FunctionComponent<RouteComponentProps> = () => {
 
+const App: FunctionComponent<RouteComponentProps> = () => {
   const [allPokemon, setAllPokemon] = useState<Array<PokemonAttributes>>([]);
   const [search, setSearch] = useState<boolean>(false);
   const [filter, setFilter] = useState<PokemonFilter | null>(null);
@@ -25,8 +26,14 @@ const App:FunctionComponent<RouteComponentProps> = () => {
       .then(json => formatAllPokemonResponse(json));
   };
 
-  const formatAllPokemonResponse = (json:AllPokemonAPI) => {
-    let parsedData = json.data.map((pokemon:MetaPokemon) => pokemon.attributes);
+  useEffect(() => {
+    fetchAllPokemon();
+  }, []);
+
+  const formatAllPokemonResponse = (json: AllPokemonAPI) => {
+    let parsedData = json.data.map(
+      (pokemon: MetaPokemon) => pokemon.attributes
+    );
     setAllPokemon(parsedData);
   };
 
@@ -65,11 +72,12 @@ const App:FunctionComponent<RouteComponentProps> = () => {
           <Route path="/pokemon/:id">
             <DetailPage allPokemon={allPokemon} />
           </Route>
-        </Switch> :
-        <img src={pokeload} alt="Pikachu Pokeball"></img>
-      }
+        </Switch>
+      ) : (
+        <img src={pokeload} alt="Pikachu Pokeball" />
+      )}
     </div>
   );
-}
+};
 
 export default withRouter(App);
