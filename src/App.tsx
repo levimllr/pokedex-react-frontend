@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FunctionComponent } from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 import Nav from "./Nav";
 import CardGrid from "./CardGrid";
 import DetailPage from "./DetailPage";
