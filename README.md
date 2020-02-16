@@ -52,3 +52,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Resources
+
+- Styling
+  - [Look Ma, No Media Queries! Responsive Layouts Using CSS Grid](https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/)
+  - [Pokemon Colors](https://www.schemecolor.com/pokemon-colors.php)
+  - [Pokemon Type Colors](http://www.epidemicjohto.com/t882-type-colors-hex-colors)

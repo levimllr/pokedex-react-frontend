@@ -29,12 +29,14 @@ const DetailPage: FunctionComponent<Props &
 
   if (onePokemon) {
     return (
-      <div className="page">
-        {pokeNum > 1 ? <Card pokemon={pokemons[pokeNum - 2]} /> : null}
+      <div className="page grid-container display-items">
+        {pokeNum > 1 ? <Card pokemon={pokemons[pokeNum - 2]} /> : <div></div>}
         <DetailView pokemon={onePokemon} />
         {pokeNum < pokemons.length - 1 ? (
           <Card pokemon={pokemons[pokeNum]} />
-        ) : null}
+        ) : (
+          <div></div>
+        )}
       </div>
     );
   } else {
