@@ -110,15 +110,18 @@ const SearchFilter: FunctionComponent<SearchFilterProps> = props => {
     <div>
       <h1>Search + Filter</h1>
       <form className="grid-container equal-items">
-        <div className="grid">
-        <label htmlFor="name">Name:</label>
+        <div className="grid css-2b097c-container">
+        <div className="css-5duvv3-control">
+        {/* <label htmlFor="name">Name:</label> */}
         <input
           id="name"
           name="name"
           type="text"
           placeholder="Name"
           onChange={props.handleNameChange}
+          className="css-1hwfws3"
         />
+        </div>
         </div>
         <div className="grid">
           <Select
