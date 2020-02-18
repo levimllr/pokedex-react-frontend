@@ -50,24 +50,49 @@ const App: FunctionComponent<{}> = () => {
 
   const renderSearch = () => {
     if (search) {
-      return <SearchFilter handleChange={searchFilter} />;
+      return (
+        <SearchFilter
+          handleNameChange={nameFilter}
+          handleTypeChange={typeFilter}
+        />
+      );
     } else {
       return null;
     }
   };
 
-  const searchFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFilter({name: event.target.value});
+  const nameFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.value);
+    // setFilter({name: event.target.value});
+  };
+
+  const typeFilter = (selectedType: any) => {
+    let types = selectedType.map((type: any) => type.value);
+    console.log(types);
+    return types;
   };
 
   const filterPokemon = () => {
+    let filteredPokemon = allPokemon;
     if (filter) {
-      return allPokemon.filter(pokemon =>
-        pokemon.name.toLowerCase().includes(filter.name)
-      );
-    } else {
-      return allPokemon;
-    }
+      if (filter.name) {
+        filteredPokemon = filteredPokemon.filter(pokemon =>
+          pokemon.name.toLowerCase().includes(filter.name)
+        );
+      };
+
+      // if (filter.types) {
+      //   filteredPokemon = filteredPokemon.filter(pokemon => {
+      //     for (let i = 0; i < pokemon.types.length; i++) {
+      //       if (filter.types.includes(pokemon.types[i])) {
+      //         return true;
+      //       }
+      //     };
+      //     return false;
+      //   });
+      // };
+    };
+    return filteredPokemon;
   };
 
   return (
