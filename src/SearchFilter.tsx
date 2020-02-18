@@ -45,7 +45,7 @@ const SearchFilter: FunctionComponent<SearchFilterProps> = props => {
   const customStyles = {
     control: (styles: any) => ({
       ...styles,
-      backgroundColor: 'white',
+      backgroundColor: 'white'
     }),
     option: (
       styles: any,
@@ -69,7 +69,6 @@ const SearchFilter: FunctionComponent<SearchFilterProps> = props => {
             : 'black'
           : data.color,
         cursor: isDisabled ? 'not-allowed' : 'default',
-
         ':active': {
           // ...styles[':active'],
           backgroundColor:
@@ -110,24 +109,27 @@ const SearchFilter: FunctionComponent<SearchFilterProps> = props => {
   return (
     <div>
       <h1>Search + Filter</h1>
-      <form>
+      <form className="grid-container equal-items">
+        <div className="grid">
         <label htmlFor="name">Name:</label>
         <input
           id="name"
           name="name"
           type="text"
+          placeholder="Name"
           onChange={props.handleNameChange}
         />
-        <fieldset>
-          <legend>Type(s):</legend>
+        </div>
+        <div className="grid">
           <Select
             styles={customStyles}
             closeMenuOnSelect={false}
             options={types}
             isMulti
             onChange={props.handleTypeChange}
+            placeholder={<div>Types</div>}
           />
-        </fieldset>
+        </div>
       </form>
     </div>
   );
