@@ -19,16 +19,6 @@ const App: FunctionComponent<{}> = () => {
   const [filter, setFilter] = useState<PokemonFilter>({name: "", types: []});
 
   useEffect(() => {
-    fetchAllPokemon();
-  }, []);
-
-  const fetchAllPokemon = () => {
-    fetch('http://localhost:3001/api/v1/pokemon')
-      .then(resp => resp.json())
-      .then(json => formatAllPokemonResponse(json));
-  };
-
-  useEffect(() => {
     const fetchAllPokemon = () => {
       fetch('http://localhost:3001/api/v1/pokemon')
         .then(resp => resp.json())
@@ -49,6 +39,7 @@ const App: FunctionComponent<{}> = () => {
   };
 
   const hideSearch = () => {
+    setFilter({name: "", types: []});
     setSearch(false);
   };
 
