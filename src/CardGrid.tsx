@@ -7,15 +7,18 @@ interface CardGridProps {
   handleUnmount: () => void;
 }
 
-const CardGrid: FunctionComponent<CardGridProps> = props => {
+const CardGrid: FunctionComponent<CardGridProps> = ({
+  allPokemon,
+  handleUnmount,
+}) => {
   // ensure search component is unmounted when cardgrid is unmounted
   useEffect(() => {
-    return () => props.handleUnmount();
-  }, []);
+    return () => handleUnmount();
+  }, [handleUnmount]);
 
   return (
     <div className="grid-container equal-items">
-      {props.allPokemon.map(pokemon => {
+      {allPokemon.map(pokemon => {
         return <Card key={`pokemon-${pokemon.pokemon_id}`} pokemon={pokemon} />;
       })}
     </div>
