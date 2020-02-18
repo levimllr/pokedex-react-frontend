@@ -16,7 +16,7 @@ import {
 const App: FunctionComponent<{}> = () => {
   const [allPokemon, setAllPokemon] = useState<Array<PokemonAttributes>>([]);
   const [search, setSearch] = useState<boolean>(false);
-  const [filter, setFilter] = useState<PokemonFilter | null>(null);
+  const [filter, setFilter] = useState<PokemonFilter>({name: "", types: []});
 
   useEffect(() => {
     fetchAllPokemon();
@@ -62,14 +62,15 @@ const App: FunctionComponent<{}> = () => {
   };
 
   const nameFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
-    // setFilter({name: event.target.value});
+    setFilter({...filter, name: event.target.value.toLowerCase()});
   };
 
   const typeFilter = (selectedType: any) => {
-    let types = selectedType.map((type: any) => type.value);
-    console.log(types);
-    return types;
+    let types = [];
+    if (selectedType) {
+      types = selectedType.map((type: any) => type.value);
+    };
+    setFilter({...filter, types: types});
   };
 
   const filterPokemon = () => {
@@ -81,16 +82,16 @@ const App: FunctionComponent<{}> = () => {
         );
       };
 
-      // if (filter.types) {
-      //   filteredPokemon = filteredPokemon.filter(pokemon => {
-      //     for (let i = 0; i < pokemon.types.length; i++) {
-      //       if (filter.types.includes(pokemon.types[i])) {
-      //         return true;
-      //       }
-      //     };
-      //     return false;
-      //   });
-      // };
+      if (filter.types.length > 0) {
+        filteredPokemon = filteredPokemon.filter(pokemon => {
+          for (let i = 0; i < pokemon.types.length; i++) {
+            if (filter.types.includes(pokemon.types[i].type.name)) {
+              return true;
+            }
+          };
+          return false;
+        });
+      };
     };
     return filteredPokemon;
   };
