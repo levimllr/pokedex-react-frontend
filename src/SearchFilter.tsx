@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import chroma from 'chroma-js';
-import Select from 'react-select';
+import Select, { ValueType } from 'react-select';
 
 interface SearchFilterProps {
   handleNameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleTypeChange: (selectedType: any) => void;
+  handleTypeChange: (selectedType: ValueType<typeSelectObject>) => void;
 }
 
 interface typeSelectObject {
@@ -45,7 +45,7 @@ const SearchFilter: FunctionComponent<SearchFilterProps> = props => {
   const customStyles = {
     control: (styles: any) => ({
       ...styles,
-      backgroundColor: 'white'
+      backgroundColor: 'white',
     }),
     option: (
       styles: any,
@@ -76,27 +76,18 @@ const SearchFilter: FunctionComponent<SearchFilterProps> = props => {
         },
       };
     },
-    multiValue: (
-      styles: any,
-      { data }: optionObject
-    ) => {
+    multiValue: (styles: any, { data }: optionObject) => {
       const color = chroma(data.color);
       return {
         ...styles,
         backgroundColor: color.alpha(0.1).css(),
       };
     },
-    multiValueLabel: (
-      styles: any,
-      { data }: optionObject
-    ) => ({
+    multiValueLabel: (styles: any, { data }: optionObject) => ({
       ...styles,
       color: data.color,
     }),
-    multiValueRemove: (
-      styles: any,
-      { data }: optionObject
-    ) => ({
+    multiValueRemove: (styles: any, { data }: optionObject) => ({
       ...styles,
       color: data.color,
       ':hover': {
@@ -111,17 +102,17 @@ const SearchFilter: FunctionComponent<SearchFilterProps> = props => {
       <h1>Search + Filter</h1>
       <form className="grid-container equal-items">
         <div className="grid css-2b097c-container">
-        <div className="css-5duvv3-control">
-        {/* <label htmlFor="name">Name:</label> */}
-        <input
-          id="name"
-          name="name"
-          type="text"
-          placeholder="Name"
-          onChange={props.handleNameChange}
-          className="css-1hwfws3"
-        />
-        </div>
+          <div className="css-5duvv3-control">
+            {/* <label htmlFor="name">Name:</label> */}
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Name"
+              onChange={props.handleNameChange}
+              className="css-1hwfws3"
+            />
+          </div>
         </div>
         <div className="grid">
           <Select

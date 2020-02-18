@@ -16,7 +16,7 @@ import {
 const App: FunctionComponent<{}> = () => {
   const [allPokemon, setAllPokemon] = useState<Array<PokemonAttributes>>([]);
   const [search, setSearch] = useState<boolean>(false);
-  const [filter, setFilter] = useState<PokemonFilter>({name: "", types: []});
+  const [filter, setFilter] = useState<PokemonFilter>({ name: '', types: [] });
 
   useEffect(() => {
     const fetchAllPokemon = () => {
@@ -39,7 +39,7 @@ const App: FunctionComponent<{}> = () => {
   };
 
   const hideSearch = () => {
-    setFilter({name: "", types: []});
+    setFilter({ name: '', types: [] });
     setSearch(false);
   };
 
@@ -57,15 +57,15 @@ const App: FunctionComponent<{}> = () => {
   };
 
   const nameFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFilter({...filter, name: event.target.value.toLowerCase()});
+    setFilter({ ...filter, name: event.target.value.toLowerCase() });
   };
 
   const typeFilter = (selectedType: any) => {
     let types = [];
     if (selectedType) {
       types = selectedType.map((type: any) => type.value);
-    };
-    setFilter({...filter, types: types});
+    }
+    setFilter({ ...filter, types: types });
   };
 
   const filterPokemon = () => {
@@ -75,7 +75,7 @@ const App: FunctionComponent<{}> = () => {
         filteredPokemon = filteredPokemon.filter(pokemon =>
           pokemon.name.toLowerCase().includes(filter.name)
         );
-      };
+      }
 
       if (filter.types.length > 0) {
         filteredPokemon = filteredPokemon.filter(pokemon => {
@@ -83,11 +83,11 @@ const App: FunctionComponent<{}> = () => {
             if (filter.types.includes(pokemon.types[i].type.name)) {
               return true;
             }
-          };
+          }
           return false;
         });
-      };
-    };
+      }
+    }
     return filteredPokemon;
   };
 
@@ -99,7 +99,10 @@ const App: FunctionComponent<{}> = () => {
           <Switch>
             <Route exact path="/pokemon">
               {renderSearch()}
-              <CardGrid allPokemon={filterPokemon()} handleUnmount={hideSearch} />
+              <CardGrid
+                allPokemon={filterPokemon()}
+                handleUnmount={hideSearch}
+              />
             </Route>
             <Route path="/pokemon/:id">
               <DetailPage allPokemon={allPokemon} />
