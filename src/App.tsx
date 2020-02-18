@@ -48,6 +48,10 @@ const App: FunctionComponent<{}> = () => {
     setSearch(!search);
   };
 
+  const hideSearch = () => {
+    setSearch(false);
+  };
+
   const renderSearch = () => {
     if (search) {
       return (
@@ -104,7 +108,7 @@ const App: FunctionComponent<{}> = () => {
           <Switch>
             <Route exact path="/pokemon">
               {renderSearch()}
-              <CardGrid allPokemon={filterPokemon()} />
+              <CardGrid allPokemon={filterPokemon()} handleUnmount={hideSearch} />
             </Route>
             <Route path="/pokemon/:id">
               <DetailPage allPokemon={allPokemon} />
