@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent } from 'react';
 import Card from './Card';
 import { PokemonAttributes } from './types/index';
 
