@@ -2,21 +2,14 @@ import React, { useState, useEffect, FunctionComponent } from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
 import Nav from './Nav';
-import CardGrid from './CardGrid';
 import DetailPage from './DetailPage';
+import Home from './Home';
 import pokeload from './pikapokeball.gif';
-import SearchFilter from './SearchFilter';
-import {
-  AllPokemonAPI,
-  MetaPokemon,
-  PokemonAttributes,
-  PokemonFilter,
-} from './types/index';
+import { AllPokemonAPI, MetaPokemon, PokemonAttributes } from './types/index';
 
 const App: FunctionComponent<{}> = () => {
   const [allPokemon, setAllPokemon] = useState<Array<PokemonAttributes>>([]);
-  const [search, setSearch] = useState<boolean>(false);
-  const [filter, setFilter] = useState<PokemonFilter>({ name: '', types: [] });
+  const [isSearchVisible, setIsSearchVisible] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchAllPokemon = () => {
@@ -35,74 +28,24 @@ const App: FunctionComponent<{}> = () => {
   };
 
   const toggleSearch = () => {
-    setSearch(!search);
+    setIsSearchVisible(!isSearchVisible);
   };
 
   const hideSearch = () => {
-    setFilter({ name: '', types: [] });
-    setSearch(false);
-  };
-
-  const renderSearch = () => {
-    if (search) {
-      return (
-        <SearchFilter
-          handleNameChange={nameFilter}
-          handleTypeChange={typeFilter}
-        />
-      );
-    } else {
-      return null;
-    }
-  };
-
-  const nameFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFilter({ ...filter, name: event.target.value.toLowerCase() });
-  };
-
-  const typeFilter = (selectedType: any) => {
-    let types = [];
-    if (selectedType) {
-      types = selectedType.map((type: any) => type.value);
-    }
-    setFilter({ ...filter, types: types });
-  };
-
-  const filterPokemon = () => {
-    let filteredPokemon = allPokemon;
-    if (filter) {
-      if (filter.name) {
-        filteredPokemon = filteredPokemon.filter(pokemon =>
-          pokemon.name.toLowerCase().includes(filter.name)
-        );
-      }
-
-      if (filter.types.length > 0) {
-        filteredPokemon = filteredPokemon.filter(pokemon => {
-          for (let i = 0; i < pokemon.types.length; i++) {
-            if (filter.types.includes(pokemon.types[i].type.name)) {
-              return true;
-            }
-          }
-          return false;
-        });
-      }
-    }
-    return filteredPokemon;
+    setIsSearchVisible(false);
   };
 
   return (
     <div className="App">
       <Router>
-        <Nav numberOfPokemon={allPokemon.length} handleClick={toggleSearch} />
+        <Nav
+          numberOfPokemon={allPokemon.length}
+          handleSearchClick={toggleSearch}
+        />
         {allPokemon.length > 0 ? (
           <Switch>
             <Route exact path="/pokemon">
-              {renderSearch()}
-              <CardGrid
-                allPokemon={filterPokemon()}
-                handleUnmount={hideSearch}
-              />
+              <Home allPokemon={allPokemon} isSearchVisible={isSearchVisible} handleUnmount={hideSearch} />
             </Route>
             <Route path="/pokemon/:id">
               <DetailPage allPokemon={allPokemon} />

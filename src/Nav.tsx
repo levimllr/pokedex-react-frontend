@@ -3,7 +3,7 @@ import NavButton from './NavButton';
 
 interface Props {
   numberOfPokemon: number;
-  handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleSearchClick: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 const Nav: FunctionComponent<Props> = props => {
@@ -14,7 +14,7 @@ const Nav: FunctionComponent<Props> = props => {
       <NavButton
         name={'Search'}
         path={'/pokemon'}
-        handleClick={props.handleClick}
+        handleSearchClick={props.handleSearchClick}
       />
       <NavButton name={'Random'} path={`/pokemon/${randomPokemonNumber}`} />
       <NavButton name={'Saved'} path={'/pokemon'} />

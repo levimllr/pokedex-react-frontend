@@ -4,17 +4,9 @@ import { PokemonAttributes } from './types/index';
 
 interface CardGridProps {
   allPokemon: Array<PokemonAttributes>;
-  handleUnmount: () => void;
 }
 
-const CardGrid: FunctionComponent<CardGridProps> = ({
-  allPokemon,
-  handleUnmount,
-}) => {
-  // ensure search component is unmounted when cardgrid is unmounted
-  useEffect(() => {
-    return () => handleUnmount();
-  }, [handleUnmount]);
+const CardGrid: FunctionComponent<CardGridProps> = ({ allPokemon }) => {
 
   return (
     <div className="grid-container equal-items">

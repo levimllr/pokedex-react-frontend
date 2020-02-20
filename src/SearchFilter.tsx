@@ -103,7 +103,6 @@ const SearchFilter: FunctionComponent<SearchFilterProps> = props => {
       <form className="grid-container equal-items">
         <div className="grid css-2b097c-container">
           <div className="css-5duvv3-control">
-            {/* <label htmlFor="name">Name:</label> */}
             <input
               id="name"
               name="name"
