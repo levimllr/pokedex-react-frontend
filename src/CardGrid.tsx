@@ -7,7 +7,6 @@ interface CardGridProps {
 }
 
 const CardGrid: FunctionComponent<CardGridProps> = ({ allPokemon }) => {
-
   return (
     <div className="grid-container equal-items">
       {allPokemon.map(pokemon => {

@@ -45,7 +45,11 @@ const App: FunctionComponent<{}> = () => {
         {allPokemon.length > 0 ? (
           <Switch>
             <Route exact path="/pokemon">
-              <Home allPokemon={allPokemon} isSearchVisible={isSearchVisible} handleUnmount={hideSearch} />
+              <Home
+                allPokemon={allPokemon}
+                isSearchVisible={isSearchVisible}
+                handleUnmount={hideSearch}
+              />
             </Route>
             <Route path="/pokemon/:id">
               <DetailPage allPokemon={allPokemon} />

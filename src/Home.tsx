@@ -8,7 +8,7 @@ interface Props {
   allPokemon: Array<PokemonAttributes>;
   isSearchVisible: boolean;
   handleUnmount: () => void;
-};
+}
 
 const Home: FunctionComponent<Props> = ({
   allPokemon,

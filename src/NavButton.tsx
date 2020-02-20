@@ -13,7 +13,7 @@ const NavButton: FunctionComponent<NavButtonProps> = ({
   handleSearchClick,
 }) => (
   <Link to={path} onClick={handleSearchClick}>
-      {name}
+    {name}
   </Link>
 );
 
