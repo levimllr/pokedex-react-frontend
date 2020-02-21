@@ -17,7 +17,7 @@ const Home: FunctionComponent<Props> = ({
 }) => {
   const [filter, setFilter] = useState<PokemonFilter>({ name: '', types: [] });
 
-  // ensure search component is unmounted when cardgrid is unmounted
+  // ensure isSearchVisible state in App is set to false when Home unmounted
   useEffect(() => {
     return () => handleUnmount();
   }, [handleUnmount]);
