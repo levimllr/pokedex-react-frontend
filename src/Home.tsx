@@ -18,9 +18,7 @@ const Home: FunctionComponent<Props> = ({
   const [filter, setFilter] = useState<PokemonFilter>({ name: '', types: [] });
 
   // ensure isSearchVisible state in App is set to false when Home unmounted
-  useEffect(() => {
-    return () => handleUnmount();
-  }, [handleUnmount]);
+  useEffect(() => handleUnmount, []);
 
   const nameFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilter({ ...filter, name: event.target.value.toLowerCase() });

@@ -28,10 +28,12 @@ const App: FunctionComponent<{}> = () => {
   };
 
   const toggleSearch = () => {
+    console.log(`Toggling Search component from ${isSearchVisible} to ${!isSearchVisible}!`)
     setIsSearchVisible(!isSearchVisible);
   };
 
   const hideSearch = () => {
+    console.log("Hiding Search.")
     setIsSearchVisible(false);
   };
 
