@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import Card from './Card';
-import { PokemonAttributes } from './types/index';
+import Card from '../Card/Card';
+import { PokemonAttributes } from '../types/index';
 
 interface CardGridProps {
   allPokemon: Array<PokemonAttributes>;

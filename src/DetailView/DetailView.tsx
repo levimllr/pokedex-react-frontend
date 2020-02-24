@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { FullPokemonAttributes } from './types/index';
+import { FullPokemonAttributes } from '../types/index';
 
 interface DetailViewProps {
   pokemon: FullPokemonAttributes;
