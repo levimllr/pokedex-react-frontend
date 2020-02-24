@@ -14,7 +14,7 @@ const typeStyleName = (types: Array<Type>) => {
 const Card: FunctionComponent<CardProps> = (props: CardProps) => (
   <Link to={`/pokemon/${props.pokemon.pokemon_id}`}>
     <div
-      className={`grid ${typeStyleName(props.pokemon.types)}`}
+      className={`grid ${typeStyleName(props.pokemon.types)} card`}
       id={`pokemonCard-${props.pokemon.pokemon_id}`}
       key={props.pokemon.pokemon_id}
     >

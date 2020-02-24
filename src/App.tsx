@@ -2,8 +2,8 @@ import React, { useState, useEffect, FunctionComponent } from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
 import Nav from './Nav';
-import CardGrid from './CardGrid';
 import DetailPage from './DetailPage';
+import Search from './Search';
 import pokeload from './pikapokeball.gif';
 import { AllPokemonAPI, MetaPokemon, PokemonAttributes } from './types/index';
 
@@ -32,8 +32,8 @@ const App: FunctionComponent<{}> = () => {
         <Nav numberOfPokemon={allPokemon.length} />
         {allPokemon.length > 0 ? (
           <Switch>
-            <Route exact path="/pokemon">
-              <CardGrid allPokemon={allPokemon} />
+            <Route exact path="/search">
+              <Search allPokemon={allPokemon} />
             </Route>
             <Route path="/pokemon/:id">
               <DetailPage allPokemon={allPokemon} />

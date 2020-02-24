@@ -41,6 +41,11 @@ export interface SimplePokemonTypes {
     type: BasicAPILink;
 };
 
+export interface PokemonFilter {
+    name: string;
+    types: Array<string>;
+};
+
 // POKEMON API AT SHOW PATH
 // /api/v1/pokemon/:id
 

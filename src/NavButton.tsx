@@ -4,11 +4,16 @@ import { Link } from 'react-router-dom';
 interface NavButtonProps {
   name: string;
   path: string;
+  handleSearchClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-const NavButton: FunctionComponent<NavButtonProps> = ({ name, path }) => (
-  <Link to={path}>
-    <button className="button">{name}</button>
+const NavButton: FunctionComponent<NavButtonProps> = ({
+  name,
+  path,
+  handleSearchClick,
+}) => (
+  <Link to={path} onClick={handleSearchClick}>
+    {name}
   </Link>
 );
 

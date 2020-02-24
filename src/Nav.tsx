@@ -10,9 +10,9 @@ const Nav: FunctionComponent<Props> = props => {
 
   return (
     <div className="nav">
-      <NavButton name={'Search'} path={'/pokemon'} />
+      <NavButton name={'Search'} path={'/search'} />
       <NavButton name={'Random'} path={`/pokemon/${randomPokemonNumber}`} />
-      <NavButton name={'Saved'} path={'/pokemon'} />
+      <NavButton name={'Saved'} path={'/'} />
     </div>
   );
 };
