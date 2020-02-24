@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { PokemonAttributes, FullPokemonAttributes } from './types/index';
-import DetailView from './DetailView';
-import Card from './Card';
-import pokeload from './pikapokeball.gif';
+import { PokemonAttributes, FullPokemonAttributes } from '../types/index';
+import DetailView from '../DetailView/DetailView';
+import Card from '../Card/Card';
+import pokeload from '../assets/pikapokeball.gif';
 
 interface Props {
   allPokemon: Array<PokemonAttributes>;

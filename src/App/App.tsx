@@ -1,11 +1,11 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
-import Nav from './Nav';
-import DetailPage from './DetailPage';
-import Search from './Search';
-import pokeload from './pikapokeball.gif';
-import { AllPokemonAPI, MetaPokemon, PokemonAttributes } from './types/index';
+import Nav from '../Nav/Nav';
+import DetailPage from '../DetailPage/DetailPage';
+import Search from '../Search/Search';
+import pokeload from '../assets/pikapokeball.gif';
+import { AllPokemonAPI, MetaPokemon, PokemonAttributes } from '../types/index';
 
 const App: FunctionComponent<{}> = () => {
   const [allPokemon, setAllPokemon] = useState<Array<PokemonAttributes>>([]);

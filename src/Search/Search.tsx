@@ -1,8 +1,8 @@
 import React, { useState, FunctionComponent } from 'react';
-import './App.scss';
-import CardGrid from './CardGrid';
-import SearchFilter from './SearchFilter';
-import { PokemonAttributes, PokemonFilter } from './types/index';
+import '../App/App.scss';
+import CardGrid from '../CardGrid/CardGrid';
+import SearchFilter from '../SearchFilter/SearchFilter';
+import { PokemonAttributes, PokemonFilter } from '../types/index';
 
 interface Props {
   allPokemon: Array<PokemonAttributes>;

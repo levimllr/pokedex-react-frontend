@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import NavButton from './NavButton';
+import NavButton from '../NavButton/NavButton';
 
 interface Props {
   numberOfPokemon: number;

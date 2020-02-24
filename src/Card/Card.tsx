@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
-import { PokemonAttributes, Type } from './types/index';
+import { PokemonAttributes, Type } from '../types/index';
 
 interface CardProps {
   pokemon: PokemonAttributes;
