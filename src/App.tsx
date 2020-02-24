@@ -3,7 +3,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
 import Nav from './Nav';
 import DetailPage from './DetailPage';
-import Home from './Search';
+import Search from './Search';
 import pokeload from './pikapokeball.gif';
 import { AllPokemonAPI, MetaPokemon, PokemonAttributes } from './types/index';
 
@@ -33,7 +33,7 @@ const App: FunctionComponent<{}> = () => {
         {allPokemon.length > 0 ? (
           <Switch>
             <Route exact path="/search">
-              <Home allPokemon={allPokemon} />
+              <Search allPokemon={allPokemon} />
             </Route>
             <Route path="/pokemon/:id">
               <DetailPage allPokemon={allPokemon} />
