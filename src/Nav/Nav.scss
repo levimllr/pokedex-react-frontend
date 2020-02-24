@@ -1,0 +1,78 @@
+$pokemon-red: #ff0000;
+$pokemon-red-dark: #cc0000;
+$pokemon-blue: #3b4cca;
+$pokemon-yellow: #ffde00;
+$pokemon-yellow-dark: #b3a125;
+
+header {
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #d7dbf5;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    font-weight: 700;
+
+    * {
+        display: inline;
+        margin: 10px;
+    }
+
+    li {
+        padding: 10px
+    }
+
+    nav {
+        width: 100%;
+        justify-content: right;
+        display: flex;
+        transition: all 0.5s ease;
+
+        a:hover, a:focus {
+            text-decoration: underline solid $pokemon-red-dark;
+        }
+    }
+
+    .nav-logo {
+        a {
+            align-items: center;
+            display: flex;
+            transition: all 0.5s ease;
+
+
+            h2 {
+                transition: all 0.5s ease;
+            }
+
+            img {
+                transition: all 0.5s ease;
+            }
+
+            &:hover,
+            &:focus {
+                transform: scale(0.9);
+
+                img {
+                transform: scale(1.5);
+                }
+            }
+
+            &:active {
+                transform: scale(0.9);
+
+                img {
+                transform: scale(1.7);
+                }
+            }
+        }
+    }
+    
+    .nav-logo-image {
+        height: 40px;
+    }    
+}
+
