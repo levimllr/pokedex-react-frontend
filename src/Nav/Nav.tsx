@@ -20,13 +20,13 @@ const Nav: FunctionComponent<Props> = props => {
         </Link>
       </div>
       <nav>
-          <NavButton name={'Search'} path={'/search'} cssClass={'nav-link'} />
-          <NavButton
-            name={'Random'}
-            path={`/pokemon/${randomPokemonNumber}`}
-            cssClass={'nav-link'}
-          />
-          <NavButton name={'Saved'} path={'/'} cssClass={'nav-link'} />
+        <NavButton name={'Search'} path={'/search'} cssClass={'nav-link'} />
+        <NavButton
+          name={'Random'}
+          path={`/pokemon/${randomPokemonNumber}`}
+          cssClass={'nav-link'}
+        />
+        <NavButton name={'Saved'} path={'/'} cssClass={'nav-link'} />
       </nav>
     </header>
   );
