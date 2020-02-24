@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import chroma from 'chroma-js';
 import Select, { ValueType } from 'react-select';
+import './SearchFilter.scss';
+ 
 
 interface SearchFilterProps {
   handleNameChange: (event: React.ChangeEvent<HTMLInputElement>) => void;

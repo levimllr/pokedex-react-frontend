@@ -173,17 +173,3 @@ h2.card-title {
 .type-double {
   @include color-modifiers-double($type-opacity-light);
 }
-
-// STYLE OF SEARCH FORM
-.checkbox-container {
-  text-align: left;
-}
-
-form {
-  font-weight: 400;
-}
-
-form input {
-  font-size: 16px;
-  border: none;
-};
