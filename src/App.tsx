@@ -16,28 +16,24 @@ const App: FunctionComponent<{}> = () => {
         .then(resp => resp.json())
         .then(json => formatAllPokemonResponse(json));
     };
-    fetchAllPokemon()
+    fetchAllPokemon();
   }, []);
 
   const formatAllPokemonResponse = (json: AllPokemonAPI) => {
     let parsedData = json.data.map(
       (pokemon: MetaPokemon) => pokemon.attributes
     );
-    setAllPokemon(parsedData)
+    setAllPokemon(parsedData);
   };
 
   return (
     <div className="App">
       <Router>
-        <Nav
-          numberOfPokemon={allPokemon.length}
-        />
+        <Nav numberOfPokemon={allPokemon.length} />
         {allPokemon.length > 0 ? (
           <Switch>
             <Route exact path="/search">
-              <Home
-                allPokemon={allPokemon}
-              />
+              <Home allPokemon={allPokemon} />
             </Route>
             <Route path="/pokemon/:id">
               <DetailPage allPokemon={allPokemon} />

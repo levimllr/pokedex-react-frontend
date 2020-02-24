@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import NavButton from './NavButton';
 
 interface Props {
-  numberOfPokemon: number
+  numberOfPokemon: number;
 }
 
 const Nav: FunctionComponent<Props> = props => {
@@ -10,10 +10,7 @@ const Nav: FunctionComponent<Props> = props => {
 
   return (
     <div className="nav">
-      <NavButton
-        name={'Search'}
-        path={'/search'}
-      />
+      <NavButton name={'Search'} path={'/search'} />
       <NavButton name={'Random'} path={`/pokemon/${randomPokemonNumber}`} />
       <NavButton name={'Saved'} path={'/'} />
     </div>

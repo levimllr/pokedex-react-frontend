@@ -8,9 +8,7 @@ interface Props {
   allPokemon: Array<PokemonAttributes>;
 }
 
-const Search: FunctionComponent<Props> = ({
-  allPokemon
-}) => {
+const Search: FunctionComponent<Props> = ({ allPokemon }) => {
   const [filter, setFilter] = useState<PokemonFilter>({ name: '', types: [] });
 
   const nameFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
