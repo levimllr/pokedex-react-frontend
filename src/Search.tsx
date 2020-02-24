@@ -1,4 +1,4 @@
-import React, { useEffect, useState, FunctionComponent } from 'react';
+import React, { useState, FunctionComponent } from 'react';
 import './App.scss';
 import CardGrid from './CardGrid';
 import SearchFilter from './SearchFilter';
@@ -6,19 +6,12 @@ import { PokemonAttributes, PokemonFilter } from './types/index';
 
 interface Props {
   allPokemon: Array<PokemonAttributes>;
-  isSearchVisible: boolean;
-  handleUnmount: () => void;
 }
 
-const Home: FunctionComponent<Props> = ({
-  allPokemon,
-  isSearchVisible,
-  handleUnmount,
+const Search: FunctionComponent<Props> = ({
+  allPokemon
 }) => {
   const [filter, setFilter] = useState<PokemonFilter>({ name: '', types: [] });
-
-  // ensure isSearchVisible state in App is set to false when Home unmounted
-  useEffect(() => handleUnmount, []);
 
   const nameFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilter({ ...filter, name: event.target.value.toLowerCase() });
@@ -56,16 +49,14 @@ const Home: FunctionComponent<Props> = ({
   };
 
   return (
-    <div className="Home">
-      {isSearchVisible && (
-        <SearchFilter
-          handleNameChange={nameFilter}
-          handleTypeChange={typeFilter}
-        />
-      )}
+    <div className="Search">
+      <SearchFilter
+        handleNameChange={nameFilter}
+        handleTypeChange={typeFilter}
+      />
       <CardGrid allPokemon={filterPokemon()} />
     </div>
   );
 };
 
-export default Home;
+export default Search;
