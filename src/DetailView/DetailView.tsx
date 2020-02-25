@@ -40,8 +40,6 @@ const weightConverter = (weight: number) => {
 };
 
 const statFormatter = (stats: Array<Stat>) => {
-  // pay HP no mind: it's at the top of the card!
-  // stats.pop();
   return stats.slice(0, 5).map(stat => (
     <tr>
       <td className="align-cell-right">
@@ -55,7 +53,8 @@ const statFormatter = (stats: Array<Stat>) => {
 const moveFormatter = (moves: Array<Move>) => {
   let moveSample = [];
   for (let i = 0; i < 5; i++) {
-    moveSample.push(moves[Math.floor(Math.random() * moves.length)]);
+    let move = moves.slice(Math.floor(Math.random() * moves.length))[0]
+    moveSample.push(move);
   }
   return moveSample.map(move => (
     <tr>
