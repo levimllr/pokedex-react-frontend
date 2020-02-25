@@ -1,6 +1,11 @@
+.view {
+  margin: 1.5em;
+}
+
 .detail-sprite {
   background-color: white;
   height: 192px;
+  border-radius: 0.5em;
 }
 
 .grid-left {
@@ -30,8 +35,25 @@
   font-size: 1em;
 }
 
+.view-stats {
+    font-weight: 400;
+    font-size: 1em;
+    margin: 1em 0em;
+
+    table {
+      table-layout: fixed;
+      margin-left: auto;
+      margin-right: auto;
+
+      td {
+        padding: 0.1em 0.5em;
+        text-align: right;
+      }
+    }
+  }
+
 .view-flavor {
   font-style: italic;
   font-weight: 300;
-  margin: 2em;
+  margin: 1em 2em;
 }

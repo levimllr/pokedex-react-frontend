@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { FullPokemonAttributes, Type } from '../types/index';
+import { FullPokemonAttributes, Type, Stat, Move } from '../types/index';
 import './DetailView.scss';
 
 interface DetailViewProps {
@@ -12,7 +12,7 @@ const typeStyleName = (types: Array<Type>) => {
 };
 
 const typeHeader = (types: Array<Type>) => {
-  return types.map(type => <div className={`type-header-${type.type.name} view-header`}>{`${type.type.name}`}</div>);
+  return types.map(type => <div className={`type-header-${type.type.name} view-header`}>{type.type.name}</div>);
 };
 
 const heightConverter = (height: number) => {
@@ -33,6 +33,30 @@ const weightConverter = (weight: number) => {
   const pounds = Math.round(weight * poundsPerHectogram);
   return `${pounds} lbs` 
 };
+
+const statFormatter = (stats: Array<Stat>) => {
+  // pay HP no mind: it's at the top of the card!
+  stats.pop();
+  return stats.map(stat => (
+      <tr>
+        <td>{capitalizeFirstLetter(stat.stat.name)}</td>
+        <td>{stat.base_stat}</td>
+      </tr>
+    )
+  )
+};
+
+const moveFormatter = (moves: Array<Move>) => {
+  let moveSample = [];
+  for (let i = 0; i < 5; i++) {
+    moveSample.push(moves[Math.floor(Math.random() * moves.length)])
+  };
+  return moveSample.map(move => <li>{capitalizeFirstLetter(move.move.name)}</li>)
+};
+
+const capitalizeFirstLetter = (string: string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 const DetailView: FunctionComponent<DetailViewProps> = ({ pokemon }) => (
   <div className={`view ${typeStyleName(pokemon.types)}`}>
@@ -57,8 +81,15 @@ const DetailView: FunctionComponent<DetailViewProps> = ({ pokemon }) => (
       <div className='view-profile'>Height: {heightConverter(pokemon.height)}.</div>
       <div className='view-profile'>Weight: {weightConverter(pokemon.weight)}.</div>
     </div>
-    <div>
-
+    <div className='view-stats grid-container equal-items'>
+      <div className='grid-left'>
+        <table>
+          {statFormatter(pokemon.stats)}
+        </table>
+      </div>
+      <div className='grid-right'>
+        poop
+      </div>
     </div>
     <div className='view-flavor'>
       {pokemon.flavor_text}
