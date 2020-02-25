@@ -9,12 +9,24 @@
 }
 
 .grid-left {
-  justify-self: left;
   padding-left: 2em;
+
+  h2 {
+    margin-left: 0.5em;
+  }
+}
+
+.justified-self-right {
+  justify-self: right;
+  padding-right: 1em;
+}
+
+.justified-self-left {
+  justify-self: left;
+  padding-left: 1em;
 }
 
 .grid-right {
-  justify-self: right;
   padding-right: 2em;
   display: inline-block;
 }
@@ -36,24 +48,36 @@
 }
 
 .view-stats {
-    font-weight: 400;
-    font-size: 1em;
-    margin: 1em 0em;
+  font-weight: 400;
+  font-size: 1em;
+  margin: 1em 0em;
 
-    table {
-      table-layout: fixed;
-      margin-left: auto;
-      margin-right: auto;
+  table {
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
 
-      td {
-        padding: 0.1em 0.5em;
-        text-align: right;
-      }
+    th {
+      font-style: italic;
+      padding: 0.1em 0.5em;
+    }
+
+    td {
+      padding: 0.1em 0.5em;
     }
   }
+}
 
 .view-flavor {
   font-style: italic;
   font-weight: 300;
   margin: 1em 2em;
+}
+
+.align-cell-right {
+  text-align: right;
+}
+
+.align-cell-left {
+  text-align: left;
 }
