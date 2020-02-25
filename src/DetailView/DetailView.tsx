@@ -53,7 +53,7 @@ const statFormatter = (stats: Array<Stat>) => {
 const moveFormatter = (moves: Array<Move>) => {
   let moveSample = [];
   for (let i = 0; i < 5; i++) {
-    let move = moves.slice(Math.floor(Math.random() * moves.length))[0]
+    let move = moves.slice(Math.floor(Math.random() * moves.length))[0];
     moveSample.push(move);
   }
   return moveSample.map(move => (
