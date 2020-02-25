@@ -47,10 +47,13 @@ $type-opacity-heavy: 0.6;
       background-color: rgba($hex, 1);
       border-radius: 0.2em;
       padding: 0.2em;
+<<<<<<< HEAD
 
       &.view-header {
         margin-right: 0.2em;
       }
+=======
+>>>>>>> Set background color of type headers
     }
   }
 }
@@ -198,4 +201,8 @@ h2.card-title {
 
 .type-header {
   @include color-modifiers-header();
+<<<<<<< HEAD
 }
+=======
+};
+>>>>>>> Set background color of type headers
