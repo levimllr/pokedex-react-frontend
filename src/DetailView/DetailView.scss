@@ -1,14 +1,22 @@
 .detail-sprite {
-    background-color: white;
-    height: 192px;
+  background-color: white;
+  height: 192px;
 }
 
 .grid-left {
-    justify-self: left;
-    padding-left: 2em;
+  justify-self: left;
+  padding-left: 2em;
 }
 
 .grid-right {
-    justify-self: right;
-    padding-right: 2em;
+  justify-self: right;
+  padding-right: 2em;
+  display: inline-block;
+}
+
+.view-header {
+    display: inline-block;
+    margin-right: 0.5em;
+    font-weight: 400;
+    font-size: 1.17em;
 }

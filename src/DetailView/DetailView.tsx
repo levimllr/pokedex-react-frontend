@@ -17,13 +17,13 @@ const typeHeader = (types: Array<Type>) => {
 
 const DetailView: FunctionComponent<DetailViewProps> = ({ pokemon }) => (
   <div className={`view ${typeStyleName(pokemon.types)}`}>
-    <div className='grid-container equal-small-items'>
+    <div className='grid-container equal-items'>
       <div className='grid-left'>
         <h2>
           #{pokemon.pokemon_id} {pokemon.name}
         </h2>
       </div>
-      <div className='grid-right grid-container'>
+      <div className='grid-right'>
         <div className='view-header'>
           {pokemon.stats[5].base_stat} HP
         </div>
