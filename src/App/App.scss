@@ -39,6 +39,16 @@ $type-opacity-heavy: 0.6;
   }
 }
 
+@mixin color-modifiers-header() {
+  @each $name, $hex in $type-colors {
+    &-#{$name} {
+      background-color: rgba($hex, 1);
+      border-radius: 0.2em;
+      padding: 0.2em;
+    }
+  }
+}
+
 @mixin color-modifiers-double($opacity) {
   @each $second-name, $second-hex in $type-colors {
     @each $first-name, $first-hex in $type-colors {
@@ -173,3 +183,7 @@ h2.card-title {
 .type-double {
   @include color-modifiers-double($type-opacity-light);
 }
+
+.type-header {
+  @include color-modifiers-header();
+};

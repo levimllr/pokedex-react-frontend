@@ -11,18 +11,27 @@ const typeStyleName = (types: Array<Type>) => {
   return prefix + types.map(type => type.type.name).join('-');
 };
 
+const typeHeader = (types: Array<Type>) => {
+  return types.map(type => <div className={`type-header-${type.type.name} view-header`}>{`${type.type.name}`}</div>);
+};
+
 const DetailView: FunctionComponent<DetailViewProps> = ({ pokemon }) => (
   <div className={`view ${typeStyleName(pokemon.types)}`}>
-    <div className='grid-container equal-items'>
-      <h2>
-        #{pokemon.pokemon_id} {pokemon.name}
-      </h2>
-      <h2>
-        {pokemon.stats[5].base_stat} HP
-      </h2>
+    <div className='grid-container equal-small-items'>
+      <div className='grid-left'>
+        <h2>
+          #{pokemon.pokemon_id} {pokemon.name}
+        </h2>
+      </div>
+      <div className='grid-right grid-container'>
+        <div className='view-header'>
+          {pokemon.stats[5].base_stat} HP
+        </div>
+        {typeHeader(pokemon.types)}
+      </div>
     </div>
-    <div className='detail-sprite'>
-      <img alt={pokemon.name} src={pokemon.sprites.front_default} />
+    <div >
+      <img alt={pokemon.name} src={pokemon.sprites.front_default} className='detail-sprite'/>
     </div>
     <div>
       <h3>Base XP: {pokemon.base_experience}</h3>
