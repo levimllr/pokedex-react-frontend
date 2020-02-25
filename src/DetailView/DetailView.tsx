@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { FullPokemonAttributes, Type, Stat, Move } from '../types/index';
 import './DetailView.scss';
+import pokeload from '../assets/pikapokeball.gif';
 
 interface DetailViewProps {
   pokemon: FullPokemonAttributes;
@@ -40,8 +41,8 @@ const weightConverter = (weight: number) => {
 
 const statFormatter = (stats: Array<Stat>) => {
   // pay HP no mind: it's at the top of the card!
-  stats.pop();
-  return stats.map(stat => (
+  // stats.pop();
+  return stats.slice(0, 5).map(stat => (
     <tr>
       <td className="align-cell-right">
         {capitalizeFirstLetter(stat.stat.name)}
@@ -69,59 +70,71 @@ const capitalizeFirstLetter = (string: string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
-const DetailView: FunctionComponent<DetailViewProps> = ({ pokemon }) => (
-  <div className={`view ${typeStyleName(pokemon.types)}`}>
-    <div className="grid-container equal-items">
-      <div className="grid-left justified-self-left">
-        <h2>
-          #{pokemon.pokemon_id} {pokemon.name}
-        </h2>
+const DetailView: FunctionComponent<DetailViewProps> = ({ pokemon }) => {
+  if (pokemon) {
+    return (
+      <div className={`view ${typeStyleName(pokemon.types)}`}>
+        <div className="grid-container equal-items">
+          <div className="grid-left justified-self-left">
+            <h2>
+              #{pokemon.pokemon_id} {pokemon.name}
+            </h2>
+          </div>
+          <div className="grid-right justified-self-right">
+            <div className="view-header">{pokemon.stats[5].base_stat} HP</div>
+            {typeHeader(pokemon.types)}
+          </div>
+        </div>
+        <div>
+          <img
+            alt={pokemon.name}
+            src={pokemon.sprites.front_default}
+            className="detail-sprite"
+          />
+        </div>
+        <div>
+          <div className="view-profile">
+            Base XP: {pokemon.base_experience}.
+          </div>
+          <div className="view-profile">
+            Height: {heightConverter(pokemon.height)}.
+          </div>
+          <div className="view-profile">
+            Weight: {weightConverter(pokemon.weight)}.
+          </div>
+        </div>
+        <div className="view-stats grid-container equal-items">
+          <div className="grid-left justified-self-right">
+            <table>
+              <thead>
+                <tr>
+                  <th className="align-cell-right" colSpan={2}>
+                    Starting Stats
+                  </th>
+                </tr>
+              </thead>
+              {statFormatter(pokemon.stats)}
+            </table>
+          </div>
+          <div className="grid-right justified-self-left">
+            <table>
+              <thead>
+                <tr>
+                  <th className="align-cell-left" colSpan={2}>
+                    Learnable Moves
+                  </th>
+                </tr>
+              </thead>
+              {moveFormatter(pokemon.moves)}
+            </table>
+          </div>
+        </div>
+        <div className="view-flavor">{pokemon.flavor_text}</div>
       </div>
-      <div className="grid-right justified-self-right">
-        <div className="view-header">{pokemon.stats[5].base_stat} HP</div>
-        {typeHeader(pokemon.types)}
-      </div>
-    </div>
-    <div>
-      <img
-        alt={pokemon.name}
-        src={pokemon.sprites.front_default}
-        className="detail-sprite"
-      />
-    </div>
-    <div>
-      <div className="view-profile">Base XP: {pokemon.base_experience}.</div>
-      <div className="view-profile">
-        Height: {heightConverter(pokemon.height)}.
-      </div>
-      <div className="view-profile">
-        Weight: {weightConverter(pokemon.weight)}.
-      </div>
-    </div>
-    <div className="view-stats grid-container equal-items">
-      <div className="grid-left justified-self-right">
-        <table>
-          <thead>
-            <tr>
-              <th className="align-cell-right" colSpan={2}>Starting Stats</th>
-            </tr>
-          </thead>
-          {statFormatter(pokemon.stats)}
-        </table>
-      </div>
-      <div className="grid-right justified-self-left">
-        <table>
-          <thead>
-            <tr>
-              <th className="align-cell-left" colSpan={2}>Learnable Moves</th>
-            </tr>
-          </thead>
-          {moveFormatter(pokemon.moves)}
-        </table>
-      </div>
-    </div>
-    <div className="view-flavor">{pokemon.flavor_text}</div>
-  </div>
-);
+    );
+  } else {
+    return <img src={pokeload} alt="Pikachu Pokeball" />;
+  }
+};
 
 export default DetailView;
