@@ -60,10 +60,8 @@ const DetailView: FunctionComponent<DetailViewProps> = ({ pokemon }) => (
     <div>
 
     </div>
-    <div>
-      <p>
-        {pokemon.flavor_text}
-      </p>
+    <div className='view-flavor'>
+      {pokemon.flavor_text}
     </div>
   </div>
 );
