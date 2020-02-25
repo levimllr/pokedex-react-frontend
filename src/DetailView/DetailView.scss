@@ -90,10 +90,16 @@
 }
 
 .view-profile {
-    display: inline-block;
-    margin-top: 1em;
-    margin-right: 0.5em;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 1em;
+  display: inline-block;
+  margin-top: 1em;
+  margin-right: 0.5em;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1em;
+}
+
+.view-flavor {
+  font-style: italic;
+  font-weight: 300;
+  margin: 2em;
 }
