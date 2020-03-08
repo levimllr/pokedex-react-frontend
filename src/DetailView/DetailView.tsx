@@ -2,6 +2,11 @@ import React, { FunctionComponent } from 'react';
 import { FullPokemonAttributes, Type, Stat, Move } from '../types/index';
 import './DetailView.scss';
 import pokeload from '../assets/pikapokeball.gif';
+import {
+  capitalizeFirstLetter,
+  heightConverter,
+  weightConverter,
+} from '../helpers';
 
 interface DetailViewProps {
   pokemon: FullPokemonAttributes;
@@ -20,25 +25,6 @@ const typeHeader = (types: Array<Type>) => {
   ));
 };
 
-const heightConverter = (height: number) => {
-  const decimetersPerInch = 3.93701;
-  const totalInches = Math.round(height * decimetersPerInch);
-  const feet = Math.floor(totalInches / 12);
-  const inches = totalInches % 12;
-  let heightString = '';
-  if (feet > 0) {
-    heightString += `${feet}' `;
-  }
-  heightString += `${inches}"`;
-  return heightString;
-};
-
-const weightConverter = (weight: number) => {
-  const poundsPerHectogram = 0.220462;
-  const pounds = Math.round(weight * poundsPerHectogram);
-  return `${pounds} lbs`;
-};
-
 const statFormatter = (stats: Array<Stat>) => {
   return stats.slice(0, 5).map(stat => (
     <tr>
@@ -50,6 +36,8 @@ const statFormatter = (stats: Array<Stat>) => {
   ));
 };
 
+// sample five random moves from the pokemon's list of moves and
+// format them for display
 const moveFormatter = (moves: Array<Move>) => {
   let moveSample = [];
   for (let i = 0; i < 5; i++) {
@@ -63,10 +51,6 @@ const moveFormatter = (moves: Array<Move>) => {
       </td>
     </tr>
   ));
-};
-
-const capitalizeFirstLetter = (string: string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
 const DetailView: FunctionComponent<DetailViewProps> = ({ pokemon }) => {
