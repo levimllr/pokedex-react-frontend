@@ -1,0 +1,83 @@
+.view {
+  margin: 1.5em;
+}
+
+.detail-sprite {
+  background-color: white;
+  height: 192px;
+  border-radius: 0.5em;
+}
+
+.grid-left {
+  padding-left: 2em;
+
+  h2 {
+    margin-left: 0.5em;
+  }
+}
+
+.justified-self-right {
+  justify-self: right;
+  padding-right: 1em;
+}
+
+.justified-self-left {
+  justify-self: left;
+  padding-left: 1em;
+}
+
+.grid-right {
+  padding-right: 2em;
+  display: inline-block;
+}
+
+.view-header {
+  display: inline-block;
+  margin-right: 0.5em;
+  font-weight: 400;
+  font-size: 1.17em;
+}
+
+.view-profile {
+  display: inline-block;
+  margin-top: 1em;
+  margin-right: 0.5em;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1em;
+}
+
+.view-stats {
+  font-weight: 400;
+  font-size: 1em;
+  margin: 1em 0em;
+
+  table {
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+
+    th {
+      font-style: italic;
+      padding: 0.1em 0.5em;
+    }
+
+    td {
+      padding: 0.1em 0.5em;
+    }
+  }
+}
+
+.view-flavor {
+  font-style: italic;
+  font-weight: 300;
+  margin: 1em 2em;
+}
+
+.align-cell-right {
+  text-align: right;
+}
+
+.align-cell-left {
+  text-align: left;
+}

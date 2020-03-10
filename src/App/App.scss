@@ -26,14 +26,30 @@ $type-colors: (
 );
 
 $type-opacity-light: 0.2;
+$type-opacity-medium: 0.4;
 $type-opacity-heavy: 0.6;
 
 @mixin color-modifiers-single($opacity) {
   @each $name, $hex in $type-colors {
     &-#{$name} {
       background-color: rgba($hex, $opacity);
+      border-radius: 0.5em;
       &:hover {
         background-color: rgba($hex, $type-opacity-heavy);
+      }
+    }
+  }
+}
+
+@mixin color-modifiers-header() {
+  @each $name, $hex in $type-colors {
+    &-#{$name} {
+      background-color: rgba($hex, 1);
+      border-radius: 0.2em;
+      padding: 0.2em;
+
+      &.view-header {
+        margin-right: 0.2em;
       }
     }
   }
@@ -49,6 +65,7 @@ $type-opacity-heavy: 0.6;
           50%,
           rgba($first-hex, $type-opacity-light)
         );
+        border-radius: 0.5em;
         &:hover {
           background: linear-gradient(
             90deg,
@@ -177,4 +194,8 @@ h2.card-title {
 
 .type-double {
   @include color-modifiers-double($type-opacity-light);
+}
+
+.type-header {
+  @include color-modifiers-header();
 }
